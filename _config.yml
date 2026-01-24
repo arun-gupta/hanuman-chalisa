@@ -25,6 +25,10 @@ exclude:
   - Gemfile.lock
   - verses_original_backup.txt
   - CONTRIBUTING.md
+  - docs/tech-stack.md
+  - docs/verse-structure.md
+  - docs/multilingual-implementation.md
+  - docs/github-pages-setup.md
 
 # Plugins
 plugins:

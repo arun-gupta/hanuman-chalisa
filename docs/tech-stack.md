@@ -111,9 +111,9 @@ practical_application:
 ### Template Rendering
 
 The `_layouts/verse.html` template renders all content from YAML data:
-- `{{ page.devanagari }}` - Devanagari text
-- `{{ page.transliteration }}` - Phonetic transliteration
-- `{% for item in page.word_meanings %}` - Word meanings loop
+- `{% raw %}{{ page.devanagari }}{% endraw %}` - Devanagari text
+- `{% raw %}{{ page.transliteration }}{% endraw %}` - Phonetic transliteration
+- `{% raw %}{% for item in page.word_meanings %}{% endraw %}` - Word meanings loop
 - All formatting and structure defined once in template
 
 **Benefits:**
