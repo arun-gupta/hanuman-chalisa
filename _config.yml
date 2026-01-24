@@ -12,7 +12,7 @@ permalink: pretty
 collections:
   verses:
     output: true
-    permalink: /verses/:name/
+    permalink: /verses/:path/
 
 # Exclude from processing
 exclude:

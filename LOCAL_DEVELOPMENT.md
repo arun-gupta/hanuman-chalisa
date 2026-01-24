@@ -242,11 +242,64 @@ cp _verses/verse_01.md _verses/verse_NEW.md
 - Limit `_verses/` directory while testing layout changes
 - Use `--limit_posts 5` to build fewer items during testing
 
+## Pre-Commit Validation
+
+The project includes a Git pre-commit hook that automatically validates your changes before each commit.
+
+### What the Hook Does
+
+The pre-commit hook automatically:
+- ✅ Validates YAML syntax in all verse files
+- ✅ Runs Jekyll build to catch errors
+- ✅ Checks for common issues (unescaped Liquid syntax, etc.)
+- ✅ Prevents broken commits from reaching GitHub
+
+### Hook is Already Installed
+
+The pre-commit hook is located at `.git/hooks/pre-commit` and is active.
+
+### Using the Hook
+
+The hook runs automatically on every commit:
+
+```bash
+# Make your changes
+git add .
+
+# Hook runs automatically during commit
+git commit -m "Your message"
+```
+
+If validation fails, you'll see the specific errors and the commit will be blocked.
+
+### Skipping the Hook (Not Recommended)
+
+In rare cases, you can skip validation:
+
+```bash
+git commit --no-verify -m "Your message"
+```
+
+**Warning:** Only skip if you're certain the changes are safe!
+
+### Example Output
+
+When you commit, you'll see:
+
+```
+🙏 Pre-commit validation starting...
+✓ Ruby version OK
+✓ All verse files have valid YAML
+✓ Jekyll build successful
+✓ All pre-commit checks passed! ✨
+📤 Proceeding with commit...
+```
+
 ## Next Steps
 
 - Set up automated tests
 - Add link checker
-- Implement CI/CD with local tests before GitHub push
+- Configure GitHub Actions to run same validations
 
 ---
 
