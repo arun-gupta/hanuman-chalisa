@@ -23,72 +23,20 @@ This comprehensive guide aims to make the Hanuman Chalisa accessible and meaning
 
 ## Structure
 
-Each verse in this guide includes the following components:
+Each verse includes:
+- Original Hindi text with Devanagari script
+- Transliteration and pronunciation guide with audio
+- Word-by-word meanings and translations
+- Story and scriptural context
+- Practical application for daily life
+- Recitation guidelines
 
-### **Verse Image**
-A visual representation at the top of each verse for immediate engagement and context.
-
-### 1. **Original Hindi Text (Devanagari Script)**
-The authentic verse in its traditional form.
-
-### 2. **Transliteration**
-Roman script representation for those unfamiliar with Devanagari, following IAST (International Alphabet of Sanskrit Transliteration) standards.
-
-### 3. **Pronunciation Guide**
-- Audio recitation in two formats: full speed and slow recitation for learning
-- Phonetic breakdown of challenging words with syllable emphasis
-- Tips for non-native speakers on difficult sounds
-- Recommendations to listen to audio multiple times before attempting recitation
-
-### 4. **Word-by-Word Meaning**
-Simple breakdown of each word:
-- Hindi word (Devanagari script)
-- English transliteration (romanized)
-- English meaning
-
-**Example format:**
-- **श्री** (Shrī) - Holy, auspicious
-- **गुरु** (Guru) - Teacher, spiritual guide
-- **चरण** (Charan) - Feet
-- **सरोज** (Saroj) - Lotus
-
-### 5. **Literal Translation**
-Direct, word-for-word English translation maintaining the original structure.
-
-### 6. **Interpretive Meaning**
-A flowing, contextual translation that captures the essence and devotional spirit of the verse.
-
-### 7. **Story Behind the Verse**
-Narrative context explaining:
-- Which incident from Hanuman's life is being referenced
-- The broader context within Hindu mythology
-- Why Tulsidas chose to highlight this particular aspect
-
-### 8. **Ramayana Citation** *(Optional)*
-Included only when the verse references a specific incident or episode. Direct references to:
-- Specific Kanda (book) and Sarga (chapter) in Valmiki Ramayana
-- Corresponding section in Tulsidas's Ramcharitmanas
-- Other relevant scriptural sources
-
-*Note: This section is omitted for verses containing general praise or attributes without direct scriptural citations.*
-
-### 9. **Practical Application**
-Modern-day relevance presented in two simple sections:
-- **Key Teaching:** The main lesson or value from the verse
-- **When to Use This Verse:** Life situations, challenges, or moments where this verse offers guidance and inspiration
-
-### 10. **Recitation Guidelines**
-Simple, universal practices including:
-- Best times of day for recitation (morning, evening)
-- Auspicious days (Tuesdays, Saturdays, Hanuman Jayanti)
-- Specific verses for common life situations (courage, health, obstacles, peace)
-- Recommended repetitions for different intentions (daily practice, special prayers)
-
-*Note: These are general guidelines from traditional practice. Follow what resonates with your heart and devotional practice.*
+For detailed information about the verse structure, see **[verse-structure.md](docs/verse-structure.md)**.
 
 ## Additional Resources
 
 For more detailed information, please refer to:
+- **[verse-structure.md](docs/verse-structure.md)** - Detailed explanation of verse components and structure
 - **[background.md](docs/background.md)** - Complete history and context of the Hanuman Chalisa
 - **[guide.md](docs/guide.md)** - Comprehensive usage guide for different purposes
 - **[github-pages-setup.md](docs/github-pages-setup.md)** - How the website is built and deployed with Jekyll and GitHub Pages
