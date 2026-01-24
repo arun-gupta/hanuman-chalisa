@@ -21,7 +21,9 @@ This comprehensive guide aims to make the Hanuman Chalisa accessible and meaning
 - Proper pronunciation and recitation guidance
 - Devotional insights for spiritual growth
 
-## 🌐 Bilingual Support
+## Features
+
+### 🌐 Bilingual Support
 
 The entire website is fully bilingual, supporting both **English** and **हिन्दी (Hindi)**:
 
@@ -38,13 +40,7 @@ The entire website is fully bilingual, supporting both **English** and **हि�
 
 Whether you're more comfortable reading in English or हिन्दी, the complete devotional content and scholarly insights are available to you.
 
-## Features
-
-### Interactive Website
-- **🌐 Complete bilingual support** - Full site available in English and Hindi (हिन्दी)
-  - Language switcher in header preserves selection across all pages
-  - All UI elements, navigation, and content switch languages
-  - Verse titles, section headings, and word meanings fully translated
+### Interactive Website Features
 - **📖 Full chalisa view** - Read all 43 verses on a single page with bilingual display
 - **🔍 Search functionality** - Search across all verses in Devanagari, transliteration, translations
 - **⌨️ Arrow key navigation** (← →) between verses
