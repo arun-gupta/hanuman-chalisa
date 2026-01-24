@@ -90,7 +90,7 @@ For more detailed information, please refer to:
 - **[background.md](docs/background.md)** - Complete history and context of the Hanuman Chalisa
 - **[guide.md](docs/guide.md)** - Comprehensive usage guide for different purposes
 
---- Contribution & Feedback
+## Contribution & Feedback
 
 This is a living document created with devotion and scholarly care. If you find:
 - Translation improvements
