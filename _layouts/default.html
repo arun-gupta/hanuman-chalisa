@@ -1,5 +1,7 @@
+{% assign lang = page.lang | default: "en" %}
+{% assign t = site.data.translations[lang] %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ lang }}" dir="{{ t.direction }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,8 +14,18 @@
 <body>
     <header>
         <div class="container">
-            <h1><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
-            <p class="subtitle">ॐ श्री हनुमते नमः</p>
+            <div class="header-content">
+                <div class="header-title">
+                    <h1><a href="{{ '/' | relative_url }}?lang={{ lang }}">{{ site.title }}</a></h1>
+                    <p class="subtitle">ॐ श्री हनुमते नमः</p>
+                </div>
+                <div class="language-switcher">
+                    <select id="languageSelect" onchange="switchLanguage(this.value)">
+                        <option value="en" {% if lang == 'en' %}selected{% endif %}>English</option>
+                        <option value="hi" {% if lang == 'hi' %}selected{% endif %}>हिन्दी</option>
+                    </select>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -23,21 +35,22 @@
 
     <footer>
         <div class="container">
-            <p>May Lord Hanuman's blessings be with all who study and recite these sacred verses.</p>
+            <p>{{ t.footer.blessing }}</p>
             <p class="footer-links">
                 <a href="https://github.com/arun-gupta/hanuman-chalisa" target="_blank" rel="noopener noreferrer">
-                    View on GitHub
+                    {{ t.footer.view_github }}
                 </a>
                 |
-                <a href="{{ '/docs/guide' | relative_url }}">Usage Guide</a>
+                <a href="{{ '/docs/guide' | relative_url }}?lang={{ lang }}">{{ t.footer.usage_guide }}</a>
                 |
                 <a href="https://github.com/arun-gupta/hanuman-chalisa/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer">
-                    Contribute
+                    {{ t.footer.contribute }}
                 </a>
             </p>
         </div>
     </footer>
 
     <script src="{{ '/assets/js/navigation.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/language.js' | relative_url }}"></script>
 </body>
 </html>
