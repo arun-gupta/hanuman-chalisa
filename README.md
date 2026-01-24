@@ -23,6 +23,9 @@ This comprehensive guide aims to make the Hanuman Chalisa accessible and meaning
 
 Each verse in this guide includes the following components:
 
+### **Verse Image**
+A visual representation at the top of each verse for immediate engagement and context.
+
 ### 1. **Original Hindi Text (Devanagari Script)**
 The authentic verse in its traditional form.
 
@@ -30,10 +33,10 @@ The authentic verse in its traditional form.
 Roman script representation for those unfamiliar with Devanagari, following IAST (International Alphabet of Sanskrit Transliteration) standards.
 
 ### 3. **Pronunciation Guide**
-- Phonetic breakdown of challenging words
-- Emphasis markers for correct recitation
-- Audio guidance (where applicable)
-- Tips for non-native speakers
+- Audio recitation in two formats: full speed and slow recitation for learning
+- Phonetic breakdown of challenging words with syllable emphasis
+- Tips for non-native speakers on difficult sounds
+- Recommendations to listen to audio multiple times before attempting recitation
 
 ### 4. **Word-by-Word Meaning**
 Simple breakdown of each word:
@@ -59,18 +62,18 @@ Narrative context explaining:
 - The broader context within Hindu mythology
 - Why Tulsidas chose to highlight this particular aspect
 
-### 8. **Ramayana Citation**
-Direct references to:
+### 8. **Ramayana Citation** *(Optional)*
+Included only when the verse references a specific incident or episode. Direct references to:
 - Specific Kanda (book) and Sarga (chapter) in Valmiki Ramayana
 - Corresponding section in Tulsidas's Ramcharitmanas
 - Other relevant scriptural sources
 
+*Note: This section is omitted for verses containing general praise or attributes without direct scriptural citations.*
+
 ### 9. **Practical Application**
-Modern-day relevance including:
-- Life lessons and values
-- How to embody the verse's teaching
-- Situations where this verse offers guidance
-- Reflective questions for personal growth
+Modern-day relevance presented in two simple sections:
+- **Key Teaching:** The main lesson or value from the verse
+- **When to Use This Verse:** Life situations, challenges, or moments where this verse offers guidance and inspiration
 
 ### 10. **Recitation Guidelines**
 Simple, universal practices including:
@@ -80,12 +83,6 @@ Simple, universal practices including:
 - Recommended repetitions for different intentions (daily practice, special prayers)
 
 *Note: These are general guidelines from traditional practice. Follow what resonates with your heart and devotional practice.*
-
-### 11. **Accompanying Image**
-Visual representation featuring:
-- Iconographic depiction related to the verse
-- Traditional artistic interpretations
-- Symbolic elements explained
 
 ## Additional Resources
 
