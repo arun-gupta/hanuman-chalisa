@@ -18,8 +18,7 @@ description: "Read the complete Hanuman Chalisa with all 43 verses on a single p
     </div>
 
     <div class="verses-content">
-        {% assign sorted_verses = site.verses | sort: "verse_number" %}
-        {% for verse in sorted_verses %}
+        {% for verse in site.verses %}
         <article class="verse-item" id="{{ verse.url | split: '/' | last }}">
             <div class="verse-header">
                 <h2>{{ verse.title }}</h2>
