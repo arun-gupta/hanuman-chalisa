@@ -2,6 +2,79 @@
 
 This document outlines the technologies, tools, and services used to build and maintain the Hanuman Chalisa interactive website.
 
+## Tech Stack Overview
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    DEVELOPMENT ENVIRONMENT                   │
+├─────────────────────────────────────────────────────────────┤
+│  PyCharm (JetBrains IDE)    │  Claude Code (AI Assistant)   │
+│  - Code editing & review    │  - Terminal-based            │
+│  - Git integration          │  - Code generation           │
+│  - Project management       │  - Automation                │
+└──────────────┬──────────────┴───────────────┬──────────────┘
+               │                              │
+               ▼                              ▼
+┌──────────────────────────┐   ┌──────────────────────────────┐
+│   CONTENT CREATION       │   │   MEDIA GENERATION           │
+├──────────────────────────┤   ├──────────────────────────────┤
+│ • Markdown (verses)      │   │ • Midjourney (images)        │
+│ • YAML (front matter)    │   │ • ElevenLabs (audio)         │
+│ • Devanagari script      │   │                              │
+└──────────┬───────────────┘   └────────────┬─────────────────┘
+           │                                │
+           ▼                                ▼
+┌──────────────────────────────────────────────────────────────┐
+│                     VERSION CONTROL                          │
+├──────────────────────────────────────────────────────────────┤
+│  Git → GitHub Repository                                     │
+└──────────────────────────┬───────────────────────────────────┘
+                           │
+                           ▼
+┌──────────────────────────────────────────────────────────────┐
+│                  STATIC SITE GENERATION                      │
+├──────────────────────────────────────────────────────────────┤
+│  Jekyll (GitHub Pages)                                       │
+│  • Markdown → HTML                                          │
+│  • Liquid templates                                         │
+│  • Automatic builds                                         │
+└──────────────────────────┬───────────────────────────────────┘
+                           │
+                           ▼
+┌──────────────────────────────────────────────────────────────┐
+│                      LIVE WEBSITE                            │
+├──────────────────────────────────────────────────────────────┤
+│  https://arun-gupta.github.io/hanuman-chalisa/              │
+│  • HTML/CSS/JavaScript                                      │
+│  • Arrow key navigation                                     │
+│  • Audio/Image integration                                  │
+└──────────────────────────────────────────────────────────────┘
+```
+
+## Development Workflow
+
+```
+1. EDIT         → PyCharm: Edit Markdown files, add content
+                  Claude Code: Generate/automate repetitive tasks
+
+2. GENERATE     → Midjourney: Create verse images
+                  ElevenLabs: Generate audio recitations
+
+3. REVIEW       → PyCharm: Code review, diff view, syntax checking
+                  Claude Code: Suggest improvements, validate structure
+
+4. COMMIT       → Git: Version control with descriptive messages
+                  PyCharm: Visual git interface
+                  Claude Code: Automated git workflows
+
+5. PUSH         → GitHub: Remote repository sync
+
+6. BUILD        → Jekyll: Automatic build on GitHub Pages
+                  (1-2 minutes)
+
+7. DEPLOY       → Live website updated automatically
+```
+
 ## Core Technologies
 
 ### Static Site Generation
@@ -61,12 +134,6 @@ This document outlines the technologies, tools, and services used to build and m
 5. Place in `/images/` directory
 6. Naming: `verse_01.jpg`, `doha_01.jpg`, etc.
 
-**Alternative Options:**
-- DALL-E 3 (OpenAI)
-- Stable Diffusion (open source, self-hosted)
-- Traditional artwork (scan and digitize)
-- Stock photo services (iStock, Shutterstock)
-
 ### Audio Recitations
 
 **ElevenLabs** (Planned)
@@ -84,23 +151,17 @@ This document outlines the technologies, tools, and services used to build and m
 6. Place in `/audio/` directory
 7. Naming: `verse_01_full.mp3`, `verse_01_slow.mp3`, etc.
 
-**Alternative Options:**
-- Google Cloud Text-to-Speech (API-based, Hindi support)
-- Amazon Polly (AWS, limited Hindi voices)
-- Azure Cognitive Services Speech (Microsoft)
-- Human voice recording (most authentic but time-intensive)
-- Festival TTS (open source, limited quality)
-
-### Content Creation
+### Content Creation & Writing
 
 **Markdown**
 - All verse content written in Markdown
 - Easy to read, write, and version control
 - **Why:** Simple, portable, git-friendly
 
-**AI Assistance**
-- Claude (Anthropic) for content structuring
-- **Used for:** Template creation, content organization, Jekyll setup
+**AI-Assisted Content Development**
+- **Claude Code** for project scaffolding and automation
+- **Claude (Anthropic)** for content structuring and organization
+- **Used for:** Template creation, Jekyll setup, documentation, workflow automation
 
 ## Version Control & Deployment
 
@@ -127,13 +188,85 @@ Local Changes → Git Commit → Git Push → GitHub Pages Build → Live Site
 
 ## Development Tools
 
-### Code Editors
+### Integrated Development Environment
 
-Any Markdown-compatible editor:
-- VS Code (recommended)
-- Sublime Text
-- Atom
-- JetBrains IDEs (IntelliJ, WebStorm)
+**PyCharm** (JetBrains IDE)
+- Professional Python IDE adapted for web development
+- **Primary role:** Code editing, project management, and code review
+
+**Key Features Used:**
+- **Markdown editing** with live preview and Devanagari script support
+- **Git integration** with visual diff, merge tools, and commit history
+- **Code review capabilities:**
+  - Side-by-side diff view
+  - Inline change tracking
+  - Syntax highlighting for all file types
+  - Structure view for quick navigation
+- **File management:**
+  - Project tree navigation
+  - Quick search (Cmd/Ctrl + Shift + F)
+  - Multi-file editing
+  - Refactoring tools
+- **Terminal integration:**
+  - Embedded terminal for Claude Code
+  - Multiple terminal sessions
+  - Git command execution
+
+**Benefits for This Project:**
+- Visual code review before commits
+- Easy navigation across 43+ verse files
+- Markdown preview for content validation
+- Git blame and history for tracking changes
+- Safe refactoring with undo history
+
+### AI-Assisted Development
+
+**Claude Code** (Anthropic)
+- AI-powered CLI tool running in PyCharm's terminal
+- **Primary role:** Development acceleration and automation
+
+**Key Capabilities:**
+- **Project scaffolding:**
+  - Jekyll configuration setup
+  - Layout template creation
+  - Directory structure generation
+- **Content generation:**
+  - Markdown file creation from templates
+  - Bulk file operations (43 verse files)
+  - Front matter injection
+- **Code automation:**
+  - Git workflow automation
+  - Batch file editing
+  - Repetitive task elimination
+- **Documentation:**
+  - Technical documentation generation
+  - README updates
+  - Code comments and explanations
+
+**Development Benefits:**
+- **Speed:** Tasks that would take hours done in minutes
+  - Example: Adding front matter to 43 files took seconds
+- **Consistency:** Template-based generation ensures uniformity
+- **Code Review:** Suggests improvements and catches issues
+- **Learning:** Explains technologies and best practices as it works
+- **Automation:** Handles repetitive git commits and file operations
+
+**Workflow Integration:**
+```
+PyCharm (Visual)  ←→  Claude Code (Terminal)
+     ↓                      ↓
+   Review                Generate
+   Edit                  Automate
+   Refine                Validate
+```
+
+**Example Collaboration:**
+1. **Claude Code generates** 43 verse files with structure
+2. **PyCharm shows diff** of all changes visually
+3. **Developer reviews** in PyCharm's UI
+4. **Claude Code commits** with proper messages
+5. **PyCharm tracks** in git history
+
 
 ### Local Testing (Optional)
 
