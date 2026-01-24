@@ -90,8 +90,8 @@ Visual representation featuring:
 ## Additional Resources
 
 For more detailed information, please refer to:
-- **[background.md](background.md)** - Complete history and context of the Hanuman Chalisa
-- **[guide.md](guide.md)** - Comprehensive usage guide for different purposes
+- **[background.md](docs/background.md)** - Complete history and context of the Hanuman Chalisa
+- **[guide.md](docs/guide.md)** - Comprehensive usage guide for different purposes
 
 --- Contribution & Feedback
 
@@ -115,4 +115,3 @@ This work draws upon:
 ## License & Usage
 
 This guide is created for educational, devotional, and non-commercial purposes. May it serve the spiritual upliftment of all beings.
-
