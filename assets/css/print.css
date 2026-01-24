@@ -1,0 +1,217 @@
+/* Print-Friendly CSS for Hanuman Chalisa */
+/* Optimized for printing verses on paper */
+
+@media print {
+    /* Hide navigation elements */
+    .verse-nav,
+    nav,
+    .nav-button,
+    header nav,
+    footer,
+    .keyboard-help {
+        display: none !important;
+    }
+
+    /* Page setup */
+    @page {
+        size: A4;
+        margin: 2cm 1.5cm;
+    }
+
+    /* Reset body for print */
+    body {
+        font-size: 12pt;
+        line-height: 1.6;
+        color: #000;
+        background: #fff;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Verse container */
+    .verse-container {
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        border: none;
+    }
+
+    .verse-content {
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* Title */
+    h1 {
+        font-size: 18pt;
+        color: #000;
+        border-bottom: 2px solid #000;
+        padding-bottom: 0.5em;
+        margin-bottom: 1em;
+        page-break-after: avoid;
+    }
+
+    /* Section headings */
+    h2 {
+        font-size: 14pt;
+        color: #000;
+        margin-top: 1.5em;
+        margin-bottom: 0.5em;
+        page-break-after: avoid;
+        font-weight: bold;
+    }
+
+    /* Keep sections together */
+    h2 + p,
+    h2 + pre,
+    h2 + ul {
+        page-break-before: avoid;
+    }
+
+    /* Devanagari and transliteration */
+    pre {
+        font-size: 14pt;
+        font-family: Arial, sans-serif;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        background: #f5f5f5;
+        padding: 1em;
+        border-left: 3px solid #333;
+        margin: 0.5em 0 1em 0;
+        page-break-inside: avoid;
+    }
+
+    /* Word meanings list */
+    ul {
+        margin: 0.5em 0 1em 1.5em;
+        padding: 0;
+    }
+
+    ul li {
+        margin-bottom: 0.3em;
+        line-height: 1.5;
+        page-break-inside: avoid;
+    }
+
+    /* Paragraphs */
+    p {
+        margin: 0.5em 0;
+        orphans: 3;
+        widows: 3;
+    }
+
+    /* Strong text */
+    strong {
+        font-weight: bold;
+        color: #000;
+    }
+
+    /* Emphasis */
+    em {
+        font-style: italic;
+    }
+
+    /* Hide images (save ink) or show placeholder */
+    img {
+        display: none;
+    }
+
+    /* If you want to show images, uncomment this instead:
+    img {
+        max-width: 100%;
+        height: auto;
+        page-break-inside: avoid;
+        page-break-after: auto;
+        margin: 1em 0;
+        border: 1px solid #ccc;
+    }
+    */
+
+    /* Horizontal rules */
+    hr {
+        border: none;
+        border-top: 1px solid #333;
+        margin: 1.5em 0;
+        page-break-after: avoid;
+    }
+
+    /* Links - show URL for external links */
+    a[href^="http"]:after {
+        content: " (" attr(href) ")";
+        font-size: 9pt;
+        color: #666;
+    }
+
+    /* Don't show URLs for internal navigation links */
+    a[href^="/"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    /* Link styling */
+    a {
+        color: #000;
+        text-decoration: underline;
+    }
+
+    /* Practical Application section */
+    .verse-content p:last-of-type {
+        margin-bottom: 1em;
+    }
+
+    /* Page breaks */
+    .page-break {
+        page-break-after: always;
+    }
+
+    /* Keep related content together */
+    .keep-together {
+        page-break-inside: avoid;
+    }
+
+    /* Footer note */
+    .verse-content > p:last-child {
+        margin-top: 2em;
+        padding-top: 1em;
+        border-top: 1px solid #ccc;
+        font-size: 10pt;
+        color: #666;
+    }
+
+    /* Print-specific: Add verse URL at bottom */
+    body:after {
+        content: "Source: https://arun-gupta.github.io/hanuman-chalisa/";
+        display: block;
+        margin-top: 2em;
+        padding-top: 1em;
+        border-top: 1px solid #ccc;
+        font-size: 9pt;
+        color: #666;
+        text-align: center;
+    }
+}
+
+/* Optional: Add a print button for screen view */
+@media screen {
+    .print-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: #ff6b35;
+        color: white;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+    }
+
+    .print-button:hover {
+        background: #e55a2b;
+    }
+}

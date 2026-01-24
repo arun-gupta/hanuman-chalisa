@@ -1,84 +1,185 @@
 # Verse Structure Guide
 
-This document explains the comprehensive structure used for each verse in the Hanuman Chalisa guide.
+This document explains the YAML-based structure used for each verse in the Hanuman Chalisa guide.
 
-## Overview
+## Architecture Overview
 
-Each verse in this guide includes the following components to provide a complete learning experience:
+Each verse is stored as a markdown file with **YAML front matter only** (no markdown body). All content is structured as data, and the Jekyll template (`_layouts/verse.html`) handles all formatting and presentation.
 
-## Components
+**Benefits:**
+- Change template once, affects all 43 verses
+- Clean separation of data and presentation
+- Easy to maintain and update
+- Consistent formatting across all verses
+
+## File Location
+
+All verse files are in the `_verses/` directory (Jekyll collection):
+- `_verses/doha_01.md`, `doha_02.md`
+- `_verses/verse_01.md` through `verse_40.md`
+- `_verses/doha_closing.md`
+
+## YAML Structure
+
+Each verse file contains only YAML front matter with the following fields:
+
+```yaml
+---
+layout: verse
+title: "Verse 1: Ocean of Knowledge and Virtues"
+verse_number: 1
+previous_verse: "/verses/doha_02"
+next_verse: "/verses/verse_02"
+
+devanagari: |
+  जय हनुमान ज्ञान गुन सागर।
+  जय कपीस तिहुं लोक उजागर।।
+
+transliteration: |
+  Jai Hanuman Gyaan gun saagar
+  Jai Kapis Tihun lok ujagar
+
+phonetic_notes:
+  - word: "हनुमान"
+    phonetic: "ha-nu-maan"
+    emphasis: "last syllable"
+  - word: "ज्ञान"
+    phonetic: "gyaan"
+    emphasis: "syllable"
+
+word_meanings:
+  - word: "जय"
+    roman: "Jai"
+    meaning: "victory/hail"
+  - word: "हनुमान"
+    roman: "Hanuman"
+    meaning: "Lord Hanuman"
+  - word: "ज्ञान"
+    roman: "Gyan"
+    meaning: "knowledge/wisdom"
+
+literal_translation: "Hail Hanuman, ocean of knowledge and virtues. Hail the lord of monkeys, who illuminates the three worlds."
+
+interpretive_meaning: "Hanuman is described as an ocean - limitless and deep in wisdom and virtues. The three worlds (heaven, earth, and the netherworld) represent all of existence, and Hanuman's divine presence brings light to all realms."
+
+story: "Hanuman was blessed by various gods with knowledge and power. As a child, he mistook the sun for a fruit and tried to swallow it, demonstrating his fearlessness. Despite his monkey form, he mastered all scriptures and became a scholar."
+
+practical_application:
+  teaching: "True greatness combines knowledge and virtues, and divine wisdom illuminates all aspects of life without discrimination."
+  when_to_use: "Recite this verse when seeking wisdom and enlightenment, or when you need to remember that learning and virtuous qualities are limitless like the ocean."
+---
+```
+
+## Components Explained
+
+### Required Fields
+
+**`layout`** - Always set to `verse` (uses `_layouts/verse.html` template)
+
+**`title`** - The verse title displayed as the page heading
+
+**`verse_number`** - Used to generate image filename (`verse_01.jpg`)
+
+**`previous_verse`** - URL path to previous verse for navigation
+
+**`next_verse`** - URL path to next verse for navigation
+
+### Content Fields
+
+**`devanagari`** - Original Hindi text in Devanagari script (multiline with `|`)
+
+**`transliteration`** - Simplified phonetic Roman script (not IAST standard)
+
+**`phonetic_notes`** - Array of challenging words with pronunciation guidance:
+- `word` - Devanagari word
+- `phonetic` - Syllable breakdown
+- `emphasis` - Which syllable to stress
+
+**`word_meanings`** - Array of word-by-word translations:
+- `word` - Devanagari word
+- `roman` - Romanized version
+- `meaning` - English translation
+
+**`literal_translation`** - Direct, word-for-word English translation
+
+**`interpretive_meaning`** - Flowing contextual translation capturing devotional spirit
+
+**`story`** - Narrative context from Hanuman's life and Hindu mythology
+
+**`practical_application`** - Modern relevance (object with two fields):
+- `teaching` - Main lesson or value from the verse
+- `when_to_use` - Life situations where this verse offers guidance
+
+## How the Template Renders Content
+
+The `_layouts/verse.html` template processes the YAML data:
+
+| Section | YAML Field | Template Code |
+|---------|-----------|---------------|
+| Image | `verse_number` | `{{ '/images/verse_' \| append: verse_img \| append: '.jpg' }}` |
+| Devanagari | `devanagari` | `{{ page.devanagari }}` |
+| Transliteration | `transliteration` | `{{ page.transliteration }}` |
+| Phonetic Notes | `phonetic_notes` | `{% for note in page.phonetic_notes %}` |
+| Word Meanings | `word_meanings` | `{% for item in page.word_meanings %}` |
+| Literal Translation | `literal_translation` | `{{ page.literal_translation }}` |
+| Interpretive Meaning | `interpretive_meaning` | `{{ page.interpretive_meaning }}` |
+| Story | `story` | `{{ page.story }}` |
+| Practical Application | `practical_application` | `{{ page.practical_application.teaching }}` |
+
+## Rendered Sections
+
+When viewed on the website, each verse displays:
 
 ### **Verse Image**
-A visual representation at the top of each verse for immediate engagement and context.
+Visual representation at the top (coming soon via Midjourney)
 
-### 1. **Original Hindi Text (Devanagari Script)**
-The authentic verse in its traditional form.
+### **1. Original Hindi Text (Devanagari Script)**
+The authentic verse in traditional form
 
-### 2. **Transliteration**
-Roman script representation for those unfamiliar with Devanagari, following IAST (International Alphabet of Sanskrit Transliteration) standards.
+### **2. Simplified Transliteration**
+Phonetic Roman script for those unfamiliar with Devanagari
 
-### 3. **Pronunciation Guide**
-- Audio recitation in two formats: full speed and slow recitation for learning
-- Phonetic breakdown of challenging words with syllable emphasis
-- Tips for non-native speakers on difficult sounds
-- Recommendations to listen to audio multiple times before attempting recitation
+### **3. Pronunciation Guide**
+- Audio recitation notice (coming soon via ElevenLabs)
+- Phonetic breakdown of challenging words
+- Link to Comprehensive Guide for general tips
 
-### 4. **Word-by-Word Meaning**
-Simple breakdown of each word:
-- Hindi word (Devanagari script)
-- English transliteration (romanized)
-- English meaning
+### **4. Word-by-Word Meaning**
+Simple breakdown: Devanagari word (romanized) - English meaning
 
-**Example format:**
-- **श्री** (Shrī) - Holy, auspicious
-- **गुरु** (Guru) - Teacher, spiritual guide
-- **चरण** (Charan) - Feet
-- **सरोज** (Saroj) - Lotus
+### **5. Literal Translation**
+Direct word-for-word English translation
 
-### 5. **Literal Translation**
-Direct, word-for-word English translation maintaining the original structure.
+### **6. Interpretive Meaning**
+Contextual translation capturing devotional essence
 
-### 6. **Interpretive Meaning**
-A flowing, contextual translation that captures the essence and devotional spirit of the verse.
+### **7. Story Behind the Verse**
+Narrative context from Hanuman's life and mythology
 
-### 7. **Story Behind the Verse**
-Narrative context explaining:
-- Which incident from Hanuman's life is being referenced
-- The broader context within Hindu mythology
-- Why Tulsidas chose to highlight this particular aspect
+### **9. Practical Application**
+- **Key Teaching** - Main lesson from the verse
+- **When to Use This Verse** - Life situations for guidance
 
-### 8. **Ramayana Citation** *(Optional)*
-Included only when the verse references a specific incident or episode. Direct references to:
-- Specific Kanda (book) and Sarga (chapter) in Valmiki Ramayana
-- Corresponding section in Tulsidas's Ramcharitmanas
-- Other relevant scriptural sources
+## Editing Verses
 
-*Note: This section is omitted for verses containing general praise or attributes without direct scriptural citations.*
+To update content across all verses:
 
-### 9. **Practical Application**
-Modern-day relevance presented in two simple sections:
-- **Key Teaching:** The main lesson or value from the verse
-- **When to Use This Verse:** Life situations, challenges, or moments where this verse offers guidance and inspiration
+**Edit Template:** Modify `_layouts/verse.html` to change formatting for all 43 verses
 
-### 10. **Recitation Guidelines**
-Simple, universal practices including:
-- Best times of day for recitation (morning, evening)
-- Auspicious days (Tuesdays, Saturdays, Hanuman Jayanti)
-- Specific verses for common life situations (courage, health, obstacles, peace)
-- Recommended repetitions for different intentions (daily practice, special prayers)
+**Edit Individual Verse:** Modify YAML in specific `_verses/*.md` file
 
-*Note: These are general guidelines from traditional practice. Follow what resonates with your heart and devotional practice.*
+**Add New Field:** Add to YAML in verses, then update template to display it
 
 ## Purpose of This Structure
 
-This comprehensive structure serves multiple purposes:
+1. **Maintainability** - Template changes affect all verses instantly
+2. **Consistency** - All verses follow identical structure automatically
+3. **Data Integrity** - YAML enforces proper structure
+4. **Flexibility** - Easy to add new fields or change presentation
+5. **Separation of Concerns** - Data (YAML) separate from presentation (template)
 
-1. **Accessibility** - Multiple entry points for different learning styles
-2. **Depth** - From surface meaning to deeper spiritual insights
-3. **Practicality** - Real-world application of ancient wisdom
-4. **Authenticity** - Preserving the original while making it accessible
-5. **Learning** - Progressive understanding from words to wisdom
+## Additional Resources
 
-## Template
-
-All verse files follow the structure defined in [verses/template.md](../verses/template.md).
+- See complete YAML example: `_verses/verse_01.md`
+- Template implementation: `_layouts/verse.html`
+- Technical details: [tech-stack.md](tech-stack.md)
