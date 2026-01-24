@@ -18,7 +18,7 @@
 
 **Audio Recitation:** *(Coming soon)*
 
-Audio files for recitation will be added soon. See [issue #X](https://github.com/arun-gupta/hanuman-chalisa/issues) for progress.
+Audio files for full-speed and slow-speed recitation will be added soon using ElevenLabs AI voice synthesis.
 
 **Phonetic Breakdown:**
 

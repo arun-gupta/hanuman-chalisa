@@ -21,26 +21,44 @@ This comprehensive guide aims to make the Hanuman Chalisa accessible and meaning
 - Proper pronunciation and recitation guidance
 - Devotional insights for spiritual growth
 
-## Structure
+## Features
 
-Each verse includes:
+### Interactive Website
+- **Arrow key navigation** (← →) between verses
+- **Verse titles** on home page for easy navigation
+- **Mobile responsive** design
+- **Audio recitations** (coming soon)
+- **Beautiful images** for each verse (coming soon)
+
+### Content for Each Verse
 - Original Hindi text with Devanagari script
-- Transliteration and pronunciation guide with audio
-- Word-by-word meanings and translations
-- Story and scriptural context
+- Simplified English transliteration (phonetic, easy-to-read)
+- Word-by-word meanings
+- Literal and interpretive translations
+- Story and context from Ramayana
 - Practical application for daily life
-- Recitation guidelines
 
 For detailed information about the verse structure, see **[verse-structure.md](docs/verse-structure.md)**.
 
-## Additional Resources
+## Documentation
 
-For more detailed information, please refer to:
 - **[verse-structure.md](docs/verse-structure.md)** - Detailed explanation of verse components and structure
-- **[tech-stack.md](docs/tech-stack.md)** - Technologies, tools, and services used (Jekyll, Midjourney, ElevenLabs)
+- **[tech-stack.md](docs/tech-stack.md)** - Technologies, tools, and services used (Jekyll, PyCharm, Claude Code, Midjourney, ElevenLabs)
 - **[background.md](docs/background.md)** - Complete history and context of the Hanuman Chalisa
 - **[guide.md](docs/guide.md)** - Comprehensive usage guide for different purposes
 - **[github-pages-setup.md](docs/github-pages-setup.md)** - How the website is built and deployed with Jekyll and GitHub Pages
+- **[CONTRIBUTING.md](CONTRIBUTING.md)** - How to contribute to this project
+
+## Upcoming Features
+
+We have plans for several exciting enhancements. Issue templates are ready in `.github/ISSUE_TEMPLATES/`:
+
+1. **Audio Recitations** ([template](.github/ISSUE_TEMPLATES/audio-recitation.md)) - Generate audio files using ElevenLabs for all 43 verses (full speed + slow speed)
+2. **PDF Generation** ([template](.github/ISSUE_TEMPLATES/pdf-generation.md)) - Create a printable PDF with Devanagari text, transliteration, translations, and images
+3. **Alternate Image Themes** ([template](.github/ISSUE_TEMPLATES/alternate-image-themes.md)) - Multiple artistic styles (traditional, minimalist, photographic, etc.) with theme switcher
+4. **Localization** ([template](.github/ISSUE_TEMPLATES/localization.md)) - Translate the website into Hindi, Tamil, Telugu, Spanish, and other languages
+
+Want to help? Create an issue on GitHub using these templates or see [CONTRIBUTING.md](CONTRIBUTING.md) for how to get started!
 
 ## Contribution & Feedback
 
