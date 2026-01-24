@@ -38,7 +38,11 @@ description: "Read the complete Hanuman Chalisa with all 43 verses on a single p
 
             <div class="verse-section translation-section">
                 <h3>Translation</h3>
+                {% if verse.literal_translation.en %}
+                <p class="literal-translation">{{ verse.literal_translation.en }}</p>
+                {% else %}
                 <p class="literal-translation">{{ verse.literal_translation }}</p>
+                {% endif %}
             </div>
 
             <div class="verse-section meanings-section" style="display: none;">
