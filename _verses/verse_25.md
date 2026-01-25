@@ -5,6 +5,7 @@ title_hi: "चौपाई 25: सभी कष्टों के निवा�
 verse_number: 25
 previous_verse: "/verses/verse_24"
 next_verse: "/verses/verse_26"
+image: "/images/verse-25.png"
 
 devanagari: |
   नासै रोग हरै सब पीरा।

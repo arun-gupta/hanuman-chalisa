@@ -5,6 +5,7 @@ title_hi: "चौपाई 24: दुष्ट आत्माओं से स�
 verse_number: 24
 previous_verse: "/verses/verse_23"
 next_verse: "/verses/verse_25"
+image: "/images/verse-24.png"
 
 devanagari: |
   भूत पिसाच निकट नहिं आवै।
