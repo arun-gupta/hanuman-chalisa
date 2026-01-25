@@ -5,6 +5,7 @@ title_hi: "चौपाई 20: कठिन को आसान बनाना"
 verse_number: 20
 previous_verse: "/verses/verse_19"
 next_verse: "/verses/verse_21"
+image: "/images/verse-20.png"
 
 devanagari: |
   दुर्गम काज जगत के जेते।
