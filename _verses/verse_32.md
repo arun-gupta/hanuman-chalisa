@@ -5,6 +5,7 @@ title_hi: "चौपाई 32: राम के धारक"
 verse_number: 32
 previous_verse: "/verses/verse_31"
 next_verse: "/verses/verse_33"
+image: "/images/verse-32.png"
 
 devanagari: |
   राम रसायन तुम्हरे पासा।

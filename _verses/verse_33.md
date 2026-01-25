@@ -5,6 +5,7 @@ title_hi: "चौपाई 33: राम का मार्ग"
 verse_number: 33
 previous_verse: "/verses/verse_32"
 next_verse: "/verses/verse_34"
+image: "/images/verse-33.png"
 
 devanagari: |
   तुम्हरे भजन राम को पावै।
