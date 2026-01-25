@@ -5,6 +5,7 @@ title_hi: "चौपाई 19: राम की अंगूठी के सा
 verse_number: 19
 previous_verse: "/verses/verse_18"
 next_verse: "/verses/verse_20"
+image: "/images/verse-19.png"
 
 devanagari: |
   प्रभु मुद्रिका मेलि मुख माहीं।
