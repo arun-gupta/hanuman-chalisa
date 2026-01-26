@@ -29,7 +29,7 @@ PROMPTS_FILE = DOCS_DIR / "image-prompts.md"
 
 # DALL-E 3 Configuration
 DALLE_MODEL = "dall-e-3"
-IMAGE_SIZE = "1024x1024"  # Options: 1024x1024, 1024x1792, 1792x1024
+IMAGE_SIZE = "1024x1792"  # Options: 1024x1024, 1024x1792, 1792x1024 (portrait 1024x1792 recommended, crop to 1024x1536)
 IMAGE_QUALITY = "standard"  # Options: standard, hd
 IMAGE_STYLE = "natural"  # Options: natural, vivid
 
@@ -316,8 +316,8 @@ Cost Estimate:
     parser.add_argument(
         '--size',
         choices=['1024x1024', '1024x1792', '1792x1024'],
-        default='1024x1024',
-        help='Image size (default: 1024x1024)'
+        default='1024x1792',
+        help='Image size (default: 1024x1792 portrait, crop to 1024x1536 for final images)'
     )
 
     parser.add_argument(
