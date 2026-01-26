@@ -3,34 +3,38 @@ layout: default
 title: "Search Verses"
 description: "Search through all Hanuman Chalisa verses by keyword, phrase, or meaning"
 ---
+{% assign t_en = site.data.translations.en %}
+{% assign t_hi = site.data.translations.hi %}
 
 <div class="search-container">
     <div class="search-header">
-        <h1>🔍 Search Verses</h1>
-        <p>Search across all verses in Devanagari, transliteration, translations, and meanings</p>
+        <h1>🔍 <span data-lang="en">{{ t_en.search.title }}</span><span data-lang="hi">{{ t_hi.search.title }}</span></h1>
+        <p><span data-lang="en">{{ t_en.search.subtitle }}</span><span data-lang="hi">{{ t_hi.search.subtitle }}</span></p>
     </div>
 
     <div class="search-box">
         <input
             type="text"
             id="searchInput"
-            placeholder="Enter search term (e.g., 'Hanuman', 'courage', 'Lanka'...)"
+            placeholder=""
+            data-placeholder-en="{{ t_en.search.placeholder }}"
+            data-placeholder-hi="{{ t_hi.search.placeholder }}"
             autocomplete="off"
         >
-        <button id="clearSearch" style="display: none;">✕ Clear</button>
+        <button id="clearSearch" style="display: none;">✕ <span data-lang="en">{{ t_en.search.clear }}</span><span data-lang="hi">{{ t_hi.search.clear }}</span></button>
     </div>
 
     <div class="search-filters">
-        <label><input type="checkbox" id="searchDevanagari" checked> Devanagari</label>
-        <label><input type="checkbox" id="searchTransliteration" checked> Transliteration</label>
-        <label><input type="checkbox" id="searchTranslation" checked> Translation</label>
-        <label><input type="checkbox" id="searchMeanings" checked> Word Meanings</label>
+        <label><input type="checkbox" id="searchDevanagari" checked> <span data-lang="en">{{ t_en.search.filter_devanagari }}</span><span data-lang="hi">{{ t_hi.search.filter_devanagari }}</span></label>
+        <label><input type="checkbox" id="searchTransliteration" checked> <span data-lang="en">{{ t_en.search.filter_transliteration }}</span><span data-lang="hi">{{ t_hi.search.filter_transliteration }}</span></label>
+        <label><input type="checkbox" id="searchTranslation" checked> <span data-lang="en">{{ t_en.search.filter_translation }}</span><span data-lang="hi">{{ t_hi.search.filter_translation }}</span></label>
+        <label><input type="checkbox" id="searchMeanings" checked> <span data-lang="en">{{ t_en.search.filter_meanings }}</span><span data-lang="hi">{{ t_hi.search.filter_meanings }}</span></label>
     </div>
 
     <div id="searchStats" class="search-stats"></div>
 
     <div id="searchResults" class="search-results">
-        <p class="search-prompt">Start typing to search across all 43 verses...</p>
+        <p class="search-prompt" data-prompt-en="{{ t_en.search.prompt }}" data-prompt-hi="{{ t_hi.search.prompt }}"><span data-lang="en">{{ t_en.search.prompt }}</span><span data-lang="hi">{{ t_hi.search.prompt }}</span></p>
     </div>
 </div>
 
@@ -221,6 +225,14 @@ description: "Search through all Hanuman Chalisa verses by keyword, phrase, or m
 let versesData = [];
 let searchTimeout;
 
+// Get current language (same as language.js)
+function getCurrentLanguage() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlLang = urlParams.get('lang');
+    const storedLang = localStorage.getItem('preferredLanguage');
+    return urlLang || storedLang || 'en';
+}
+
 // Load verses data
 fetch('{{ "/search.json" | relative_url }}')
     .then(response => response.json())
@@ -248,10 +260,16 @@ document.getElementById('searchInput').addEventListener('input', function(e) {
 
 // Clear button handler
 document.getElementById('clearSearch').addEventListener('click', function() {
+    const currentLang = getCurrentLanguage();
+    const promptElement = document.querySelector('.search-prompt');
+    const promptText = currentLang === 'hi' ?
+        promptElement.getAttribute('data-prompt-hi') :
+        promptElement.getAttribute('data-prompt-en');
+
     document.getElementById('searchInput').value = '';
     this.style.display = 'none';
     document.getElementById('searchResults').innerHTML =
-        '<p class="search-prompt">Start typing to search across all 43 verses...</p>';
+        `<p class="search-prompt">${escapeHtml(promptText)}</p>`;
     document.getElementById('searchStats').innerHTML = '';
 });
 
@@ -266,9 +284,14 @@ document.getElementById('clearSearch').addEventListener('click', function() {
 function performSearch(query) {
     const resultsDiv = document.getElementById('searchResults');
     const statsDiv = document.getElementById('searchStats');
+    const currentLang = getCurrentLanguage();
 
     if (!query) {
-        resultsDiv.innerHTML = '<p class="search-prompt">Start typing to search across all 43 verses...</p>';
+        const promptElement = document.querySelector('.search-prompt');
+        const promptText = currentLang === 'hi' ?
+            promptElement.getAttribute('data-prompt-hi') :
+            promptElement.getAttribute('data-prompt-en');
+        resultsDiv.innerHTML = `<p class="search-prompt">${escapeHtml(promptText)}</p>`;
         statsDiv.innerHTML = '';
         return;
     }
@@ -286,40 +309,54 @@ function performSearch(query) {
 
 function searchVerses(query, filters) {
     const searchTerm = query.toLowerCase();
+    const currentLang = getCurrentLanguage();
     const results = [];
 
     versesData.forEach(verse => {
         const matches = [];
 
+        const labelDevanagari = currentLang === 'hi' ? 'देवनागरी' : 'Devanagari';
+        const labelTranslit = currentLang === 'hi' ? 'लिप्यंतरण' : 'Transliteration';
+        const labelTranslation = currentLang === 'hi' ? 'अनुवाद' : 'Translation';
+        const labelMeaning = currentLang === 'hi' ? 'अर्थ' : 'Meaning';
+        const labelStory = currentLang === 'hi' ? 'कहानी' : 'Story';
+        const labelWordMeaning = currentLang === 'hi' ? 'शब्द अर्थ' : 'Word Meaning';
+
         if (filters.devanagari && verse.devanagari) {
             if (verse.devanagari.toLowerCase().includes(searchTerm)) {
-                matches.push({ type: 'Devanagari', text: verse.devanagari });
+                matches.push({ type: labelDevanagari, text: verse.devanagari });
             }
         }
 
         if (filters.transliteration && verse.transliteration) {
             if (verse.transliteration.toLowerCase().includes(searchTerm)) {
-                matches.push({ type: 'Transliteration', text: verse.transliteration });
+                matches.push({ type: labelTranslit, text: verse.transliteration });
             }
         }
 
         if (filters.translation) {
-            if (verse.literal_translation && verse.literal_translation.toLowerCase().includes(searchTerm)) {
-                matches.push({ type: 'Translation', text: verse.literal_translation });
+            const litTranslation = currentLang === 'hi' ? verse.literal_translation_hi : verse.literal_translation_en;
+            const intMeaning = currentLang === 'hi' ? verse.interpretive_meaning_hi : verse.interpretive_meaning_en;
+            const story = currentLang === 'hi' ? verse.story_hi : verse.story_en;
+
+            if (litTranslation && litTranslation.toLowerCase().includes(searchTerm)) {
+                matches.push({ type: labelTranslation, text: litTranslation });
             }
-            if (verse.interpretive_meaning && verse.interpretive_meaning.toLowerCase().includes(searchTerm)) {
-                matches.push({ type: 'Meaning', text: verse.interpretive_meaning });
+            if (intMeaning && intMeaning.toLowerCase().includes(searchTerm)) {
+                matches.push({ type: labelMeaning, text: intMeaning });
             }
-            if (verse.story && verse.story.toLowerCase().includes(searchTerm)) {
-                matches.push({ type: 'Story', text: verse.story });
+            if (story && story.toLowerCase().includes(searchTerm)) {
+                matches.push({ type: labelStory, text: story });
             }
         }
 
         if (filters.meanings && verse.word_meanings) {
             verse.word_meanings.forEach(item => {
-                const meaningText = `${item.word} (${item.roman}) - ${item.meaning}`;
+                // Handle both old string format and new object format
+                const meaning = item.meaning?.en || item.meaning?.hi || item.meaning;
+                const meaningText = `${item.word} (${item.roman}) - ${meaning}`;
                 if (meaningText.toLowerCase().includes(searchTerm)) {
-                    matches.push({ type: 'Word Meaning', text: meaningText });
+                    matches.push({ type: labelWordMeaning, text: meaningText });
                 }
             });
         }
@@ -338,23 +375,35 @@ function searchVerses(query, filters) {
 function displayResults(results, query) {
     const resultsDiv = document.getElementById('searchResults');
     const statsDiv = document.getElementById('searchStats');
+    const currentLang = getCurrentLanguage();
 
     if (results.length === 0) {
-        resultsDiv.innerHTML = `<p class="no-results">No results found for "<strong>${escapeHtml(query)}</strong>". Try a different search term.</p>`;
+        const noResultsMsg = currentLang === 'hi' ?
+            `"<strong>${escapeHtml(query)}</strong>" के लिए कोई परिणाम नहीं मिला। एक अलग खोज शब्द आज़माएं।` :
+            `No results found for "<strong>${escapeHtml(query)}</strong>". Try a different search term.`;
+        resultsDiv.innerHTML = `<p class="no-results">${noResultsMsg}</p>`;
         statsDiv.innerHTML = '';
         return;
     }
 
-    statsDiv.innerHTML = `Found ${results.length} verse${results.length === 1 ? '' : 's'} matching "<strong>${escapeHtml(query)}</strong>"`;
+    const foundMsg = currentLang === 'hi' ?
+        `"<strong>${escapeHtml(query)}</strong>" के लिए ${results.length} श्लोक मिले` :
+        `Found ${results.length} verse${results.length === 1 ? '' : 's'} matching "<strong>${escapeHtml(query)}</strong>"`;
+    statsDiv.innerHTML = foundMsg;
+
+    const viewDetailsText = currentLang === 'hi' ? 'विवरण देखें →' : 'View Full Verse →';
 
     let html = '';
     results.forEach(result => {
         const verse = result.verse;
+        const title = currentLang === 'hi' ? verse.title_hi : verse.title_en;
+        const verseUrl = verse.url + (verse.url.includes('?') ? '&' : '?') + 'lang=' + currentLang;
+
         html += `
             <div class="search-result-item">
                 <div class="result-header">
-                    <h3 class="result-title">${escapeHtml(verse.title)}</h3>
-                    <a href="${verse.url}" class="result-link">View Full Verse →</a>
+                    <h3 class="result-title">${escapeHtml(title)}</h3>
+                    <a href="${verseUrl}" class="result-link">${viewDetailsText}</a>
                 </div>
                 <div class="result-content">
         `;
@@ -392,6 +441,17 @@ function escapeHtml(text) {
     return div.innerHTML;
 }
 
-// Focus search input on page load
-document.getElementById('searchInput').focus();
+// Update placeholder based on language
+function updateSearchPlaceholder() {
+    const currentLang = getCurrentLanguage();
+    const searchInput = document.getElementById('searchInput');
+    const placeholderKey = currentLang === 'hi' ? 'data-placeholder-hi' : 'data-placeholder-en';
+    searchInput.placeholder = searchInput.getAttribute(placeholderKey);
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', function() {
+    updateSearchPlaceholder();
+    document.getElementById('searchInput').focus();
+});
 </script>
