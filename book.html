@@ -510,6 +510,23 @@ function generateBook() {
     const bookContent = document.getElementById('bookContent');
     bookContent.innerHTML = '';
 
+    // Add title page as first page
+    const titlePage = document.createElement('div');
+    titlePage.className = `book-page size-${config.pageSize}`;
+    titlePage.style.display = 'flex';
+    titlePage.style.alignItems = 'center';
+    titlePage.style.justifyContent = 'center';
+    titlePage.style.padding = '0';
+
+    const titleImagePath = `/images/${config.theme}/title-page.png`;
+    titlePage.innerHTML = `
+        <img src="${BASE_URL}${titleImagePath}"
+             style="width: 100%; height: 100%; object-fit: contain;"
+             alt="Hanuman Chalisa Title Page"
+             onerror="console.error('Failed to load title page:', this.src)">
+    `;
+    bookContent.appendChild(titlePage);
+
     // Sort verses to ensure closing doha comes last
     const sortedVerses = [...versesData].sort((a, b) => {
         const aIsClosing = a.url && a.url.includes('doha_closing');
@@ -520,7 +537,7 @@ function generateBook() {
         return 0; // maintain original order
     });
 
-    let pageNumber = 1;
+    let pageNumber = config.includePageNumbers ? 2 : 1; // Start from page 2 if page numbers enabled
 
     sortedVerses.forEach((verse, index) => {
         const page = document.createElement('div');
