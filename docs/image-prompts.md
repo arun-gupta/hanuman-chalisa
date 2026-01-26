@@ -21,6 +21,29 @@ These base prompts can be adapted for different purposes:
 
 ---
 
+## Theme Used for This Project
+
+All images in this project were generated using DALL-E 3 with a consistent modern, minimalist theme that combines traditional Indian spiritual aesthetics with contemporary design sensibilities. This approach ensures visual coherence across all 47 images while maintaining cultural authenticity and respect.
+
+### Banner/Title Page
+
+**File**: `title-page.png`
+
+**Visual Theme**: Modern Minimalist Spiritual Design
+
+**Full Prompt**:
+```
+A high-quality 4k title banner for a GitHub project. The theme is 'Hanuman Chalisa'.
+The image features a modern, minimalist artistic silhouette of Lord Hanuman in saffron
+orange against a clean white or dark charcoal background. Include sacred mandala patterns
+in the background with a subtle glow. The text 'Hanuman Chalisa' is written in elegant,
+modern Devanagari calligraphy. Professional, clean, and spiritual aesthetic, 16:9 aspect ratio.
+```
+
+**Note**: This banner establishes the visual theme used throughout the project - a modern, minimalist approach with saffron orange as the primary color, clean backgrounds, and elegant typography.
+
+---
+
 ## Opening Dohas
 
 ### Opening Doha 1: Invocation to the Guru
@@ -411,7 +434,7 @@ spiritual symbolism, high quality, detailed, reverent composition
 
 ## Attribution
 
-All original images for this website were generated using **DALL-E 3** via OpenAI API.
+All original images for this website were generated using **DALL-E 3** via OpenAI API with a consistent modern, minimalist theme featuring saffron orange as the primary color, clean backgrounds, and contemporary spiritual aesthetics. This unified visual approach ensures coherence across all 47 images while maintaining cultural authenticity.
 
 Base prompts can be used freely for:
 - Personal devotional use
