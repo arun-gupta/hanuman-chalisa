@@ -5,7 +5,7 @@ title_hi: "चौपाई 18: बचपन में सूर्य की ओ
 verse_number: 18
 previous_verse: "/verses/verse_17"
 next_verse: "/verses/verse_19"
-image: "/images/verse-18.png"
+image: "/images/modern-minimalist/verse-18.png"
 
 devanagari: |
   जुग सहस्र जोजन पर भानू।

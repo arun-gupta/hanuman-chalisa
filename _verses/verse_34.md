@@ -5,7 +5,7 @@ title_hi: "चौपाई 34: शुभ मृत्यु और पुनर�
 verse_number: 34
 previous_verse: "/verses/verse_33"
 next_verse: "/verses/verse_35"
-image: "/images/verse-34.png"
+image: "/images/modern-minimalist/verse-34.png"
 
 devanagari: |
   अंत काल रघुबर पुर जाई।

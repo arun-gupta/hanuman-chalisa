@@ -29,8 +29,10 @@ This comprehensive guide aims to make the Hanuman Chalisa accessible and meaning
 - **⌨️ Arrow key navigation** (← →) between verses
 - **🖨️ Print-friendly** - Optimized CSS for printing verses
 - **📱 Mobile responsive** design
+- **🎨 Theme Switcher** - Choose from different artistic styles for verse images (Modern Minimalist available)
+- **🖼️ Beautiful AI-generated images** - All 47 images complete (title + 2 dohas + 40 verses + closing doha)
+- **🃏 Card-based layout** - Visual grid showcasing verse thumbnails on the home page
 - **🎵 Audio recitations** (coming soon)
-- **🖼️ Beautiful images** for each verse (coming soon)
 
 ### Content for Each Verse
 - **Original Hindi text** with Devanagari script
@@ -41,11 +43,12 @@ This comprehensive guide aims to make the Hanuman Chalisa accessible and meaning
 - **Story and context** from Ramayana in both languages
 - **Practical applications** for daily life in both languages
 
-### 🌐 Bilingual Support
+### 🌐 Bilingual Support & Image Themes
 
-The entire website is fully bilingual, supporting both **English** and **हिन्दी (Hindi)**:
+The entire website is fully bilingual and supports multiple image themes:
 
-- **Language Switcher** - Toggle between languages at any time from the header
+**Language Support:**
+- **Language Switcher** - Toggle between **English** and **हिन्दी (Hindi)** at any time from the header
 - **Persistent Selection** - Your language preference is remembered across all pages
 - **Complete Translation** - Every element of the site switches languages:
   - All 43 verse titles
@@ -56,7 +59,14 @@ The entire website is fully bilingual, supporting both **English** and **हि�
 - **Client-Side Implementation** - Fast language switching without page reload
 - **Extensible Architecture** - Ready to support additional languages (Tamil, Telugu, Spanish planned)
 
-Whether you're more comfortable reading in English or हिन्दी, the complete devotional content and scholarly insights are available to you.
+**Image Theme Support:**
+- **Theme Switcher** - Change the artistic style of all verse images with one click
+- **Current Theme: Modern Minimalist** - Contemporary spiritual aesthetics with saffron orange and clean backgrounds
+- **Persistent Selection** - Your theme preference is remembered across all pages
+- **Client-Side Implementation** - Instant theme switching without page reload
+- **Extensible Architecture** - Ready to support additional themes (Traditional, Watercolor, etc.)
+
+Whether you're more comfortable reading in English or हिन्दी, and whichever artistic style resonates with you, the complete devotional content is available to you.
 
 For detailed information about the verse structure, see **[verse-structure.md](docs/verse-structure.md)**.
 
@@ -75,7 +85,7 @@ For detailed information about the verse structure, see **[verse-structure.md](d
 We have several exciting enhancements planned! Check out our [GitHub Issues](https://github.com/arun-gupta/hanuman-chalisa/issues) for:
 
 1. **Audio Recitations** - Generate audio files using AI voice synthesis for all 43 verses (full speed + slow speed)
-2. **Images** - Generate verse images for visual accompaniment (43 needed)
+2. **Additional Image Themes** - Add Traditional Art, Watercolor, and other artistic styles
 3. **Additional Languages** - Add Tamil (தமிழ்), Telugu (తెలుగు), Spanish (Español) translations
 4. **PDF Generation** - Create printable PDF with Devanagari text, transliteration, translations, and images
 5. **Alternate Image Themes** - Multiple artistic styles with theme switcher

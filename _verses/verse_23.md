@@ -5,7 +5,7 @@ title_hi: "चौपाई 23: आत्म-नियंत्रित शक�
 verse_number: 23
 previous_verse: "/verses/verse_22"
 next_verse: "/verses/verse_24"
-image: "/images/verse-23.png"
+image: "/images/modern-minimalist/verse-23.png"
 
 devanagari: |
   आपन तेज सम्हारो आपै।

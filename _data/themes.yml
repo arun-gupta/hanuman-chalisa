@@ -1,0 +1,16 @@
+modern-minimalist:
+  name_en: "Modern Minimalist"
+  name_hi: "आधुनिक न्यूनतम"
+  description_en: "Contemporary spiritual aesthetics with saffron orange and clean backgrounds"
+  description_hi: "केसरिया नारंगी और साफ पृष्ठभूमि के साथ समकालीन आध्यात्मिक सौंदर्यशास्त्र"
+  folder: "modern-minimalist"
+  default: true
+
+# Future themes can be added here
+# traditional:
+#   name_en: "Traditional Art"
+#   name_hi: "पारंपरिक कला"
+#   description_en: "Classic Indian devotional art style"
+#   description_hi: "क्लासिक भारतीय भक्ति कला शैली"
+#   folder: "traditional"
+#   default: false

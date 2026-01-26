@@ -5,7 +5,7 @@ title_hi: "चौपाई 40: तुलसीदास"
 verse_number: 40
 previous_verse: "/verses/verse_39"
 next_verse: "/verses/doha_closing"
-image: "/images/verse-40.png"
+image: "/images/modern-minimalist/verse-40.png"
 
 devanagari: |
   तुलसीदास सदा हरि चेरा।

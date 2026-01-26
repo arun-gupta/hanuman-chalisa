@@ -59,8 +59,16 @@ hanuman-chalisa/
 │   └── doha_closing.md
 ├── assets/
 │   ├── css/style.css       # Custom styling
-│   └── js/navigation.js    # Arrow key navigation
-├── images/                  # Verse images (coming soon)
+│   ├── js/navigation.js    # Arrow key navigation
+│   ├── js/language.js      # Language switching
+│   └── js/theme.js         # Image theme switching
+├── images/                  # Verse images (organized by theme)
+│   └── modern-minimalist/  # Current theme (47 images complete)
+│       ├── title-page.png
+│       ├── opening-doha-01.png
+│       ├── opening-doha-02.png
+│       ├── verse-01.png through verse-40.png
+│       └── closing-doha.png
 ├── audio/                   # Audio recitations (coming soon)
 ├── docs/                    # Documentation
 └── index.html              # Home page with navigation
@@ -208,6 +216,15 @@ See [multilingual-implementation.md](multilingual-implementation.md) for complet
 - A4 page configuration
 - Print button on full chalisa view
 
+### 5. Image Theme System
+- Theme selector in header (🎨 icon)
+- Multiple artistic styles for verse images
+- Instant switching via JavaScript (no page reload)
+- localStorage persistence across pages
+- Extensible architecture via `_data/themes.yml`
+- Current themes: Modern Minimalist (more coming soon)
+- All 47 images organized by theme in `/images/{theme}/`
+
 ## Development Workflow
 
 1. **Edit** - PyCharm or Claude Code edits YAML in `_verses/*.md`
@@ -220,11 +237,31 @@ See [multilingual-implementation.md](multilingual-implementation.md) for complet
 ## Media Generation
 
 ### Images
-- **DALL-E 3** - AI image generation via OpenAI
-- Export as PNG (high resolution)
-- Store in `/images/` directory
-- Naming convention: `opening-doha-01.png`, `verse-01.png`, etc.
-- Currently implemented for opening dohas and first 4 verses
+- **DALL-E 3** - AI image generation via OpenAI API
+- **Format**: PNG (high resolution, 1024x1024)
+- **Directory Structure**: `/images/{theme-name}/`
+- **Naming Convention**: `title-page.png`, `opening-doha-01.png`, `verse-01.png`, `closing-doha.png`
+- **Status**: ✅ Complete - All 47 images generated (title + 2 dohas + 40 verses + closing)
+- **Current Theme**: Modern Minimalist (saffron orange with clean backgrounds)
+- **Theme System**: Extensible architecture to support multiple artistic styles
+
+#### Theme Configuration
+Themes are defined in `_data/themes.yml`:
+```yaml
+modern-minimalist:
+  name_en: "Modern Minimalist"
+  name_hi: "आधुनिक न्यूनतम"
+  description_en: "Contemporary spiritual aesthetics"
+  folder: "modern-minimalist"
+  default: true
+```
+
+#### Theme Switching
+- Dropdown selector in header (next to language selector)
+- JavaScript-based instant theme switching (no page reload)
+- localStorage for preference persistence
+- All images automatically updated when theme changes
+- Extensible to support future themes (Traditional, Watercolor, etc.)
 
 ### Audio Recitations (Planned)
 - **AI voice synthesis** - Provider to be determined

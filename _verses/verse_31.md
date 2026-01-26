@@ -5,7 +5,7 @@ title_hi: "चौपाई 31: अष्ट सिद्धि और नव न
 verse_number: 31
 previous_verse: "/verses/verse_30"
 next_verse: "/verses/verse_32"
-image: "/images/verse-31.png"
+image: "/images/modern-minimalist/verse-31.png"
 
 devanagari: |
   अष्ट सिद्धि नौ निधि के दाता।

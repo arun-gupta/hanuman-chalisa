@@ -5,7 +5,7 @@ title_hi: "चौपाई 22: शरण और सुरक्षा"
 verse_number: 22
 previous_verse: "/verses/verse_21"
 next_verse: "/verses/verse_23"
-image: "/images/verse-22.png"
+image: "/images/modern-minimalist/verse-22.png"
 
 devanagari: |
   सब सुख लहै तुम्हारी सरना।

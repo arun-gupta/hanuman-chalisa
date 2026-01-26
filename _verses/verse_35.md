@@ -5,7 +5,7 @@ title_hi: "चौपाई 35: हनुमान की पर्याप्�
 verse_number: 35
 previous_verse: "/verses/verse_34"
 next_verse: "/verses/verse_36"
-image: "/images/verse-35.png"
+image: "/images/modern-minimalist/verse-35.png"
 
 devanagari: |
   और देवता चित्त न धरई।

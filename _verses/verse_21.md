@@ -5,7 +5,7 @@ title_hi: "चौपाई 21: राम के द्वारपाल"
 verse_number: 21
 previous_verse: "/verses/verse_20"
 next_verse: "/verses/verse_22"
-image: "/images/verse-21.png"
+image: "/images/modern-minimalist/verse-21.png"
 
 devanagari: |
   राम दुआरे तुम रखवारे।

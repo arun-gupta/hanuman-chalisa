@@ -50,11 +50,33 @@ header .subtitle {
     opacity: 0.95;
 }
 
-.language-switcher {
+/* Header Controls Container */
+.header-controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* Screen reader only label */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+.language-switcher,
+.theme-switcher {
     position: relative;
 }
 
-.language-switcher select {
+.language-switcher select,
+.theme-switcher select {
     background: rgba(255, 255, 255, 0.2);
     color: white;
     border: 2px solid rgba(255, 255, 255, 0.5);
@@ -72,18 +94,21 @@ header .subtitle {
     transition: all 0.3s ease;
 }
 
-.language-switcher select:hover {
+.language-switcher select:hover,
+.theme-switcher select:hover {
     background: rgba(255, 255, 255, 0.3);
     border-color: rgba(255, 255, 255, 0.8);
 }
 
-.language-switcher select:focus {
+.language-switcher select:focus,
+.theme-switcher select:focus {
     outline: none;
     border-color: white;
     background: rgba(255, 255, 255, 0.3);
 }
 
-.language-switcher select option {
+.language-switcher select option,
+.theme-switcher select option {
     background: white;
     color: #333;
 }
@@ -94,9 +119,23 @@ header .subtitle {
         text-align: center;
     }
 
-    .language-switcher {
+    .header-controls {
         order: -1;
         align-self: flex-end;
+        flex-direction: column;
+        gap: 8px;
+        width: 100%;
+        max-width: 200px;
+    }
+
+    .language-switcher,
+    .theme-switcher {
+        width: 100%;
+    }
+
+    .language-switcher select,
+    .theme-switcher select {
+        width: 100%;
     }
 }
 
