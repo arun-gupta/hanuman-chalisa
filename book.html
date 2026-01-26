@@ -968,12 +968,25 @@ document.getElementById('printBook').addEventListener('click', async function() 
 
     generateBook();
 
+    // Make preview visible (but off-screen) so images can load
+    const bookPreview = document.getElementById('bookPreview');
+    bookPreview.style.display = 'block';
+    bookPreview.style.position = 'absolute';
+    bookPreview.style.left = '-9999px';
+    bookPreview.style.top = '0';
+
     // Wait for all images to load
     await waitForImagesToLoad();
 
     // Restore button
     btn.innerHTML = originalText;
     btn.disabled = false;
+
+    // Hide preview again
+    bookPreview.style.position = '';
+    bookPreview.style.left = '';
+    bookPreview.style.top = '';
+    bookPreview.style.display = 'none';
 
     // Now print
     window.print();
