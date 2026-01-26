@@ -283,7 +283,7 @@ description: "Generate a printable book version of Hanuman Chalisa with customiz
 .book-page {
     background: white;
     margin: 0 auto 20px;
-    padding: 40px 20px 35px 20px;
+    padding: 45px 20px 40px 20px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     page-break-after: always;
     page-break-inside: avoid;
@@ -292,14 +292,31 @@ description: "Generate a printable book version of Hanuman Chalisa with customiz
     grid-template-columns: 40% 58%;
     gap: 2%;
     align-items: start;
+    min-height: 300px;
+}
+
+.book-title-page {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    grid-template-columns: none !important;
+}
+
+.title-page-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .book-page-content-left {
     display: flex;
     flex-direction: column;
-    height: calc(100% - 60px);
+    height: 100%;
     justify-content: center;
     align-items: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 .book-page-content-right {
@@ -378,9 +395,10 @@ description: "Generate a printable book version of Hanuman Chalisa with customiz
 .book-image {
     width: 100%;
     height: auto;
-    max-height: calc(100% - 60px);
+    max-height: 100%;
     object-fit: contain;
     border-radius: 6px;
+    display: block;
 }
 
 .book-devanagari {
@@ -496,7 +514,7 @@ description: "Generate a printable book version of Hanuman Chalisa with customiz
 
     .book-page {
         margin: 0;
-        padding: 0.4in 0.3in 0.35in 0.3in;
+        padding: 0.5in 0.3in 0.45in 0.3in;
         box-shadow: none;
         page-break-after: always;
         page-break-inside: avoid;
@@ -504,6 +522,7 @@ description: "Generate a printable book version of Hanuman Chalisa with customiz
         grid-template-columns: 40% 58%;
         gap: 2%;
         position: relative;
+        min-height: calc(100vh - 1in);
     }
 
     .book-page.size-6x4 {
@@ -526,6 +545,22 @@ description: "Generate a printable book version of Hanuman Chalisa with customiz
         height: 11.7in;
     }
 
+    .book-title-page {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 0 !important;
+        grid-template-columns: none !important;
+    }
+
+    .title-page-image {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: contain !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
     .book-page-content-left,
     .book-page-content-right {
         height: 100%;
@@ -535,6 +570,8 @@ description: "Generate a printable book version of Hanuman Chalisa with customiz
         display: flex;
         justify-content: center;
         align-items: center;
+        padding-top: 0.3in;
+        padding-bottom: 0.3in;
     }
 
     .book-page-content-right {
@@ -553,6 +590,7 @@ description: "Generate a printable book version of Hanuman Chalisa with customiz
     .book-image {
         max-width: 100% !important;
         max-height: 100% !important;
+        height: auto !important;
         display: block !important;
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
@@ -561,6 +599,21 @@ description: "Generate a printable book version of Hanuman Chalisa with customiz
     img {
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
+    }
+
+    .page-header {
+        position: absolute;
+        top: 0.15in;
+    }
+
+    .page-footer {
+        position: absolute;
+        bottom: 0.15in;
+    }
+
+    .page-number {
+        position: absolute;
+        bottom: 0.15in;
     }
 }
 
@@ -641,16 +694,12 @@ function generateBook() {
 
     // Add title page as first page
     const titlePage = document.createElement('div');
-    titlePage.className = `book-page size-${config.pageSize}`;
-    titlePage.style.display = 'flex';
-    titlePage.style.alignItems = 'center';
-    titlePage.style.justifyContent = 'center';
-    titlePage.style.padding = '0';
+    titlePage.className = `book-page book-title-page size-${config.pageSize}`;
 
     const titleImagePath = `/images/${config.theme}/title-page.png`;
     titlePage.innerHTML = `
         <img src="${BASE_URL}${titleImagePath}"
-             style="width: 100%; height: 100%; object-fit: contain;"
+             class="title-page-image"
              alt="Hanuman Chalisa Title Page"
              onerror="console.error('Failed to load title page:', this.src)">
     `;
