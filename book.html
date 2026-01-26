@@ -971,32 +971,48 @@ document.getElementById('printBook').addEventListener('click', async function() 
 
     generateBook();
 
-    // Make preview visible (but off-screen if it wasn't already visible) so images can load
-    if (!wasVisible) {
-        bookPreview.style.position = 'absolute';
-        bookPreview.style.left = '-9999px';
-        bookPreview.style.top = '0';
-    }
+    // Always show the preview so content can render and images can load
     bookPreview.style.display = 'block';
+
+    // Scroll to top to avoid jumping if preview wasn't visible
+    if (!wasVisible) {
+        // Use visibility to hide it from user while still allowing rendering
+        bookPreview.style.visibility = 'hidden';
+        bookPreview.style.position = 'fixed';
+        bookPreview.style.top = '0';
+        bookPreview.style.left = '0';
+        bookPreview.style.width = '100%';
+        bookPreview.style.zIndex = '-1';
+    }
 
     // Wait for all images to load
     await waitForImagesToLoad();
+
+    // Restore visibility before printing
+    if (!wasVisible) {
+        bookPreview.style.visibility = '';
+    }
 
     // Restore button
     btn.innerHTML = originalText;
     btn.disabled = false;
 
-    // Now print (keep preview visible during print - print CSS handles what to show)
+    // Now print
     window.print();
 
-    // After print dialog, restore preview state
-    // If it wasn't visible before, hide it and restore positioning
-    if (!wasVisible) {
-        bookPreview.style.display = 'none';
-        bookPreview.style.position = '';
-        bookPreview.style.left = '';
-        bookPreview.style.top = '';
-    }
+    // After print dialog opens, restore preview state immediately
+    // setTimeout ensures this runs after print dialog is up
+    setTimeout(() => {
+        if (!wasVisible) {
+            bookPreview.style.display = 'none';
+            bookPreview.style.visibility = '';
+            bookPreview.style.position = '';
+            bookPreview.style.top = '';
+            bookPreview.style.left = '';
+            bookPreview.style.width = '';
+            bookPreview.style.zIndex = '';
+        }
+    }, 100);
 });
 
 document.getElementById('closePreview').addEventListener('click', function() {
