@@ -48,6 +48,9 @@ home:
   opening_dohas: "Opening Dohas"
   main_chalisa: "Main Chalisa (40 Verses)"
   closing_doha: "Closing Doha"
+  doha: "Doha"
+  verse: "Verse"
+  closing: "Closing Doha"
 
 search:
   title: "Search Verses"

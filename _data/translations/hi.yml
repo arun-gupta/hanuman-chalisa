@@ -48,6 +48,9 @@ home:
   opening_dohas: "प्रारंभिक दोहे"
   main_chalisa: "मुख्य चालीसा (40 छंद)"
   closing_doha: "समापन दोहा"
+  doha: "दोहा"
+  verse: "चौपाई"
+  closing: "समापन दोहा"
 
 search:
   title: "छंद खोजें"

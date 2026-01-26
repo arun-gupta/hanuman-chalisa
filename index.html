@@ -42,7 +42,10 @@ title: Home
             </div>
             {% endif %}
             <div class="card-content">
-                <div class="verse-number">Doha 1</div>
+                <div class="verse-number">
+                    <span data-lang="en">{{ t_en.home.doha }} 1</span>
+                    <span data-lang="hi">{{ t_hi.home.doha }} 1</span>
+                </div>
                 <div class="verse-title">
                     <span data-lang="en">{{ doha_01.title_en }}</span>
                     <span data-lang="hi">{{ doha_01.title_hi }}</span>
@@ -57,7 +60,10 @@ title: Home
             </div>
             {% endif %}
             <div class="card-content">
-                <div class="verse-number">Doha 2</div>
+                <div class="verse-number">
+                    <span data-lang="en">{{ t_en.home.doha }} 2</span>
+                    <span data-lang="hi">{{ t_hi.home.doha }} 2</span>
+                </div>
                 <div class="verse-title">
                     <span data-lang="en">{{ doha_02.title_en }}</span>
                     <span data-lang="hi">{{ doha_02.title_hi }}</span>
@@ -77,7 +83,10 @@ title: Home
             </div>
             {% endif %}
             <div class="card-content">
-                <div class="verse-number">Verse {{ verse.verse_number }}</div>
+                <div class="verse-number">
+                    <span data-lang="en">{{ t_en.home.verse }} {{ verse.verse_number }}</span>
+                    <span data-lang="hi">{{ t_hi.home.verse }} {{ verse.verse_number }}</span>
+                </div>
                 <div class="verse-title">
                     <span data-lang="en">{{ verse.title_en }}</span>
                     <span data-lang="hi">{{ verse.title_hi }}</span>
@@ -97,7 +106,10 @@ title: Home
             </div>
             {% endif %}
             <div class="card-content">
-                <div class="verse-number">Closing Doha</div>
+                <div class="verse-number">
+                    <span data-lang="en">{{ t_en.home.closing }}</span>
+                    <span data-lang="hi">{{ t_hi.home.closing }}</span>
+                </div>
                 <div class="verse-title">
                     <span data-lang="en">{{ doha_closing.title_en }}</span>
                     <span data-lang="hi">{{ doha_closing.title_hi }}</span>
