@@ -33,55 +33,30 @@ Edit files using any text editor. Common contribution areas:
 - Ensure Devanagari script displays correctly
 - Verify YAML syntax is correct (no missing colons, proper indentation)
 
-**For code/layout changes - Test Locally (Recommended):**
+**For code/layout changes:**
 
-Testing locally catches build errors before pushing to GitHub:
+Test locally before pushing - it catches build errors early!
 
 ```bash
-# One-time setup: Install dependencies
+# One-time setup
 gem install bundler
 bundle install
 
-# Start local Jekyll server
+# Start local server
 bundle exec jekyll serve
 
 # Visit http://localhost:4000/hanuman-chalisa/
 ```
 
-**What to test:**
-- Navigate through verses - check all links work
-- Test language switcher (English ↔ Hindi)
-- Verify search functionality
-- Check print layout (Cmd/Ctrl+P)
-- Test on mobile (resize browser)
-- Check browser console for errors (F12)
+**Quick testing checklist:**
+- [ ] All links work
+- [ ] Language switcher (EN ↔ HI)
+- [ ] Search functionality
+- [ ] Print layout (Cmd/Ctrl+P)
+- [ ] Mobile responsive
+- [ ] No console errors (F12)
 
-**Common local build errors:**
-- **Liquid syntax error:** Check templates in `_layouts/` for typos
-- **YAML parsing error:** Check verse files for proper indentation
-- **Missing translation key:** Check `_data/translations/*.yml`
-- **Port already in use:** Kill existing Jekyll server or use `--port 4001`
-
-**Local vs GitHub Pages:**
-- Local uses latest Jekyll version
-- GitHub Pages uses specific versions (see `Gemfile`)
-- Always test with `bundle exec jekyll serve` to match GitHub environment
-- If local build succeeds but GitHub fails, check Actions log
-
-**Troubleshooting:**
-```bash
-# Check Jekyll version
-bundle exec jekyll --version
-
-# Build without serving (faster error checking)
-bundle exec jekyll build
-
-# Verbose output for debugging
-bundle exec jekyll serve --verbose
-
-# Clean and rebuild
-bundle exec jekyll clean && bundle exec jekyll build
-```
+**→ For detailed setup, troubleshooting, and technical docs, see the [Developer Guide](docs/developer-guide.md)**
 
 ### 5. Commit and Push
 
@@ -124,7 +99,7 @@ Here are some ways you can contribute:
 See [multilingual-implementation.md](docs/multilingual-implementation.md) for translation guide.
 
 ### Media Creation
-- **Create alternate themed images** - Design images based on different artistic themes (modern, traditional, minimalist, etc.)
+- **Generate themed images** - Use DALL-E 3 to create new artistic themes (~$2 for 47 images). See [Developer Guide](docs/developer-guide.md#generate-custom-image-themes)
 - Record human voice recitations
 - Create regional language audio versions
 - Design verse-specific illustrations
@@ -136,7 +111,7 @@ See [multilingual-implementation.md](docs/multilingual-implementation.md) for tr
 - Write blog posts about the project
 
 ### Technical Features
-- **Create PDF export functionality** - Generate a printable PDF version of all verses
+- **Enhance book generator** - Add more customization options, cover page design
 - Implement dark mode
 - Add verse bookmarking
 - Create mobile app version

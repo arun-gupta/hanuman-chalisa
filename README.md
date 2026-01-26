@@ -42,35 +42,15 @@ Create personalized printable books:
 
 ## For Developers
 
-### Generate Custom Image Themes
+Want to contribute or generate custom themes?
 
-Create new artistic themes using our automated script:
+**→ See the [Developer Guide](docs/developer-guide.md)** for:
+- Local development setup
+- Generating custom image themes with DALL-E 3 (~$2 for 47 images)
+- Project structure and architecture
+- Testing and deployment
 
-```bash
-# Get OpenAI API key from https://platform.openai.com/api-keys
-export OPENAI_API_KEY='your-key-here'
-
-# Generate 47 images in your style
-./scripts/generate.sh traditional-art --style "traditional Indian devotional art"
-./scripts/generate.sh watercolor --style "soft watercolor painting"
-
-# See all options
-./scripts/generate.sh --help
-```
-
-**Cost**: ~$2 for 47 images (standard quality)
-**Details**: See [scripts/README.md](scripts/README.md)
-
-### Project Structure
-
-```
-├── _verses/          # 43 verse files with all content
-├── images/           # AI-generated images by theme
-│   └── modern-minimalist/
-├── docs/             # User guides and documentation
-├── scripts/          # DALL-E 3 image generation
-└── book.html         # Custom book generator
-```
+**→ See [CONTRIBUTING.md](CONTRIBUTING.md)** for contribution guidelines
 
 ## Documentation
 
@@ -80,6 +60,7 @@ export OPENAI_API_KEY='your-key-here'
 - [Book Generation](docs/book-generation.md) - Create printable books
 
 **Technical Docs:**
+- [Developer Guide](docs/developer-guide.md) - Setup, architecture, and development
 - [Verse Structure](docs/verse-structure.md) - How verses are organized
 - [Tech Stack](docs/tech-stack.md) - Technologies used
 - [Adding Themes](docs/adding-themes.md) - Create new image themes
