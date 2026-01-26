@@ -1,400 +1,443 @@
-# Image Generation Prompts
+# Hanuman Chalisa - Image Generation Prompts
 
-This document contains the DALL-E 3 prompts used to generate images for the Hanuman Chalisa website.
+This document contains the base image prompts used to generate AI artwork for each verse of the Hanuman Chalisa. These prompts describe the key visual elements and themes for each verse, and can be adapted for different artistic styles, cultural interpretations, or generation methods.
 
-## Generation Settings
+## How to Use These Prompts
 
-- **Model**: DALL-E 3 via OpenAI
-- **Format**: PNG (high resolution)
-- **Style**: [Add style information here]
-- **Quality**: [Add quality setting here]
-- **Aspect Ratio**: [Add aspect ratio here]
+These base prompts can be adapted for different purposes:
 
-## Image Categories
+1. **AI Image Generation**: Add style modifiers like "traditional Indian miniature painting style," "realistic digital art," "watercolor illustration," etc.
+2. **Artist Commissioning**: Share these descriptions with human artists as a starting point for custom illustrations
+3. **Theme Variations**: Apply different cultural or artistic themes while maintaining the core spiritual meaning
+4. **Search Terms**: Use these descriptions to find existing traditional artwork or reference images
 
-### Title Page
-**File**: `title-page.png`
+### Example Theme Adaptations
 
-**Prompt**:
-```
-[Add prompt here]
-```
+**Traditional Style**: "Create a [base prompt] in the style of traditional Mughal miniature painting with intricate details, gold leaf accents, and vibrant colors"
 
----
+**Modern Style**: "Create a [base prompt] in a contemporary digital art style with dramatic lighting and cinematic composition"
 
-### Opening Dohas
-
-#### Doha 1: Invocation to the Guru
-**File**: `opening-doha-01.png`
-
-**Prompt**:
-```
-[Add prompt here]
-```
-
-#### Doha 2: Prayer to Hanuman
-**File**: `opening-doha-02.png`
-
-**Prompt**:
-```
-[Add prompt here]
-```
+**Devotional Art**: "Create a [base prompt] in traditional Hindu devotional art style with sacred geometry and spiritual symbolism"
 
 ---
 
-### Main Chalisa Verses (1-40)
+## Opening Dohas
 
-#### Verse 1: Ocean of Knowledge and Virtues
-**File**: `verse-01.png`
+### Opening Doha 1: Invocation to the Guru
+**Visual Theme**: Guru's Grace and Devotion
 
-**Prompt**:
-```
-[Add prompt here]
-```
-
-#### Verse 2: Rama's Messenger
-**File**: `verse-02.png`
-
-**Prompt**:
-```
-[Add prompt here]
-```
-
-#### Verse 3: Great Hero with Body Like Thunderbolt
-**File**: `verse-03.png`
-
-**Prompt**:
-```
-[Add prompt here]
-```
-
-#### Verse 4: Golden Complexion and Beautiful Form
-**File**: `verse-04.png`
-
-**Prompt**:
-```
-[Add prompt here]
-```
-
-#### Verse 5: Bearer of Mace and Sacred Thread
-**File**: `verse-05.png`
-
-**Prompt**:
-```
-[Add prompt here]
-```
-
-#### Verse 6: Son of Kesari, Like Shiva
-**File**: `verse-06.png`
-
-**Prompt**:
-```
-[Add prompt here]
-```
-
-#### Verse 7: Learned and Eager to Serve Rama
-**File**: `verse-07.png`
-
-**Prompt**:
-```
-[Add prompt here]
-```
-
-#### Verse 8: Devoted Listener of Rama's Stories
-**File**: `verse-08.png`
-
-**Prompt**:
-```
-[Add prompt here]
-```
-
-#### Verse 9: Master of Many Forms
-**File**: `verse-09.png`
-
-**Prompt**:
-```
-[Add prompt here]
-```
-
-#### Verse 10: Destroyer of Demons
-**File**: `verse-10.png`
-
-**Prompt**:
-```
-[Add prompt here]
-```
-
-#### Verse 11: Bringing the Sanjeevani Herb
-**File**: `verse-11.png`
-
-**Prompt**:
-```
-[Add prompt here]
-```
-
-#### Verse 12: Dear as Bharata
-**File**: `verse-12.png`
-
-**Prompt**:
-```
-[Add prompt here]
-```
-
-#### Verse 13: Sung by Shesha
-**File**: `verse-13.png`
-
-**Prompt**:
-```
-[Add prompt here]
-```
-
-#### Verse 14: Praised by Gods and Sages
-**File**: `verse-14.png`
-
-**Prompt**:
-```
-[Add prompt here]
-```
-
-#### Verse 15: Beyond Description
-**File**: `verse-15.png`
-
-**Prompt**:
-```
-[Add prompt here]
-```
-
-#### Verse 16: Helper of Sugriva
-**File**: `verse-16.png`
-
-**Prompt**:
-```
-[Add prompt here]
-```
-
-#### Verse 17: Advisor to Vibhishana
-**File**: `verse-17.png`
-
-**Prompt**:
-```
-[Add prompt here]
-```
-
-#### Verse 18: The Sun Swallowing Incident
-**File**: `verse-18.png`
-
-**Prompt**:
-```
-[Add prompt here]
-```
-
-#### Verse 19: Crossing the Ocean
-**File**: `verse-19.png`
-
-**Prompt**:
-```
-[Add prompt here]
-```
-
-#### Verse 20: Remover of Difficulties
-**File**: `verse-20.png`
-
-**Prompt**:
-```
-[Add prompt here]
-```
-
-#### Verse 21: Guardian at Rama's Door
-**File**: `verse-21.png`
-
-**Prompt**:
-```
-[Add prompt here]
-```
-
-#### Verse 22: Refuge and Protection
-**File**: `verse-22.png`
-
-**Prompt**:
-```
-[Add prompt here]
-```
-
-#### Verse 23: Controller of Own Power
-**File**: `verse-23.png`
-
-**Prompt**:
-```
-[Add prompt here]
-```
-
-#### Verse 24: Protector from Evil Spirits
-**File**: `verse-24.png`
-
-**Prompt**:
-```
-[Add prompt here]
-```
-
-#### Verse 25: Destroyer of Disease
-**File**: `verse-25.png`
-
-**Prompt**:
-```
-[Add prompt here]
-```
-
-#### Verse 26: Liberator from Crises
-**File**: `verse-26.png`
-
-**Prompt**:
-```
-[Add prompt here]
-```
-
-#### Verse 27: Servant of the Supreme King
-**File**: `verse-27.png`
-
-**Prompt**:
-```
-[Add prompt here]
-```
-
-#### Verse 28: Granter of Desires
-**File**: `verse-28.png`
-
-**Prompt**:
-```
-[Add prompt here]
-```
-
-#### Verse 29: Renowned Through All Ages
-**File**: `verse-29.png`
-
-**Prompt**:
-```
-[Add prompt here]
-```
-
-#### Verse 30: Protector of Saints
-**File**: `verse-30.png`
-
-**Prompt**:
-```
-[Add prompt here]
-```
-
-#### Verse 31: Giver of Eight Siddhis
-**File**: `verse-31.png`
-
-**Prompt**:
-```
-[Add prompt here]
-```
-
-#### Verse 32: Possessor of Ram Rasayan
-**File**: `verse-32.png`
-
-**Prompt**:
-```
-[Add prompt here]
-```
-
-#### Verse 33: Path to Rama
-**File**: `verse-33.png`
-
-**Prompt**:
-```
-[Add prompt here]
-```
-
-#### Verse 34: Journey to Rama's Abode
-**File**: `verse-34.png`
-
-**Prompt**:
-```
-[Add prompt here]
-```
-
-#### Verse 35: Sufficient Devotion
-**File**: `verse-35.png`
-
-**Prompt**:
-```
-[Add prompt here]
-```
-
-#### Verse 36: Remover of Crises and Pain
-**File**: `verse-36.png`
-
-**Prompt**:
-```
-[Add prompt here]
-```
-
-#### Verse 37: Invocation for Grace
-**File**: `verse-37.png`
-
-**Prompt**:
-```
-[Add prompt here]
-```
-
-#### Verse 38: Freedom Through Recitation
-**File**: `verse-38.png`
-
-**Prompt**:
-```
-[Add prompt here]
-```
-
-#### Verse 39: Attainment of Siddhi
-**File**: `verse-39.png`
-
-**Prompt**:
-```
-[Add prompt here]
-```
-
-#### Verse 40: Tulsidas's Prayer
-**File**: `verse-40.png`
-
-**Prompt**:
-```
-[Add prompt here]
-```
+**Base Prompt**:
+Image of a guru's lotus feet with a devotee bowing, or Tulsidas sitting in meditation before his spiritual teacher.
 
 ---
 
-### Closing Doha
+### Opening Doha 2: Prayer to Hanuman
+**Visual Theme**: Humility and Supplication
 
-#### Closing Doha: Final Prayer
-**File**: `closing-doha.png`
+**Base Prompt**:
+Hanuman in a humble, seated posture with joined palms (anjali mudra), symbolizing his request for strength, wisdom, and knowledge.
 
-**Prompt**:
-```
-[Add prompt here]
-```
+---
+
+## Main Chalisa (40 Verses)
+
+### Verse 1: Ocean of Knowledge and Virtues
+**Visual Theme**: Divine Radiance and Cosmic Illumination
+
+**Base Prompt**:
+Hanuman standing majestically, radiating golden light that illuminates the three worlds (heaven, earth, netherworld shown in layers).
+
+---
+
+### Verse 2: Rama's Messenger
+**Visual Theme**: Divine Mission and Swift Movement
+
+**Base Prompt**:
+Hanuman flying/leaping across the sky, carrying Rama's message, with wind swirling around him.
+
+---
+
+### Verse 3: Great Hero with Body Like Thunderbolt
+**Visual Theme**: Divine Strength and Power
+
+**Base Prompt**:
+Hanuman in a powerful warrior stance, displaying his muscular form, with a glowing aura representing his vajra-like body.
+
+---
+
+### Verse 4: Golden Complexion and Beautiful Form
+**Visual Theme**: Divine Beauty and Majesty
+
+**Base Prompt**:
+Close-up of Hanuman's face showing his golden complexion, curly hair, ornate earrings, and divine beauty.
+
+---
+
+### Verse 5: Bearer of Mace and Sacred Thread
+**Visual Theme**: Divine Authority and Spiritual Identity
+
+**Base Prompt**:
+Hanuman holding his mace (gada) in one hand and a flag in the other, with the sacred thread (janeu) visible across his shoulder.
+
+---
+
+### Verse 6: Son of Kesari, Like Shiva
+**Visual Theme**: Divine Connection and Spiritual Lineage
+
+**Base Prompt**:
+Hanuman in a meditative or powerful pose with Shiva's symbol (trishul or third eye) subtly incorporated, showing their connection.
+
+---
+
+### Verse 7: Learned and Eager to Serve Rama
+**Visual Theme**: Devotion and Scholarship
+
+**Base Prompt**:
+Hanuman studying scriptures under the sun, or eagerly flying toward Rama to serve him.
+
+---
+
+### Verse 8: Devoted Listener of Rama's Stories
+**Visual Theme**: Heart Full of Devotion (Iconic Image)
+
+**Base Prompt**:
+Hanuman with his chest opened, revealing Rama, Sita, and Lakshmana seated in his heart - one of the most iconic images.
+
+---
+
+### Verse 9: Master of Many Forms
+**Visual Theme**: Divine Transformation and Adaptability
+
+**Base Prompt**:
+Split image - tiny Hanuman before Sita in the Ashoka grove, and giant Hanuman with burning tail setting Lanka ablaze.
+
+---
+
+### Verse 10: Destroyer of Demons
+**Visual Theme**: Divine Warrior and Protector
+
+**Base Prompt**:
+Hanuman in fierce battle form (Bhima roop), fighting demons with supernatural power.
+
+---
+
+### Verse 11: Bringing the Sanjeevani Herb
+**Visual Theme**: Divine Healer and Savior (Famous Episode)
+
+**Base Prompt**:
+Hanuman flying while carrying the entire Dronagiri mountain with the Sanjeevani herb glowing on it.
+
+---
+
+### Verse 12: Dear as Bharata
+**Visual Theme**: Divine Love and Brotherhood
+
+**Base Prompt**:
+Rama embracing Hanuman warmly, both figures showing deep affection and mutual respect.
+
+---
+
+### Verse 13: Sung by Shesha
+**Visual Theme**: Cosmic Praise and Divine Recognition
+
+**Base Prompt**:
+Shesha Naga (thousand-headed serpent) in the cosmic ocean, with all heads singing praises, while Rama embraces Hanuman.
+
+---
+
+### Verse 14: Praised by Gods and Sages
+**Visual Theme**: Universal Divine Reverence
+
+**Base Prompt**:
+Multiple celestial beings - the Kumaras, Brahma, Narada, Saraswati, Shesha - all surrounding and honoring Hanuman.
+
+---
+
+### Verse 15: Beyond Description
+**Visual Theme**: Limitless Divine Glory
+
+**Base Prompt**:
+Yama, Kubera, and the eight Digpalas (directional guardians) looking overwhelmed, unable to fully describe Hanuman's glory.
+
+---
+
+### Verse 16: Helper of Sugriva
+**Visual Theme**: Divine Friendship and Alliance
+
+**Base Prompt**:
+Hanuman introducing Sugriva to Rama, with the three figures standing together on Rishyamukh mountain.
+
+---
+
+### Verse 17: Advisor to Vibhishana
+**Visual Theme**: Divine Guidance and Righteous Path
+
+**Base Prompt**:
+Vibhishana crossing from Lanka to Rama's camp, with Hanuman guiding or blessing him.
+
+---
+
+### Verse 18: The Sun Swallowing Incident
+**Visual Theme**: Childhood Divine Play and Innocence
+
+**Base Prompt**:
+Baby Hanuman leaping toward the sun in the sky, thinking it's a fruit, with his child-like innocence visible.
+
+---
+
+### Verse 19: Crossing the Ocean
+**Visual Theme**: Divine Mission and Fearlessness
+
+**Base Prompt**:
+Hanuman leaping across the ocean with Rama's ring held in his mouth, waves far below.
+
+---
+
+### Verse 20: Remover of Difficulties
+**Visual Theme**: Divine Protection and Relief
+
+**Base Prompt**:
+Devotees facing various difficulties, with Hanuman's large protective form appearing to help them.
+
+---
+
+### Verse 21: Guardian at Rama's Door
+**Visual Theme**: Divine Devotion and Service
+
+**Base Prompt**:
+Hanuman standing guard at an ornate gateway/door, with Rama's palace visible in the background.
+
+---
+
+### Verse 22: Refuge and Protection
+**Visual Theme**: Divine Shelter and Safety
+
+**Base Prompt**:
+Devotees taking shelter at Hanuman's feet, with a protective aura surrounding them, all fears dissipated.
+
+---
+
+### Verse 23: Controller of Own Power
+**Visual Theme**: Divine Might and Universal Impact
+
+**Base Prompt**:
+Hanuman roaring with such power that the three worlds (shown as spheres or layers) visibly tremble.
+
+---
+
+### Verse 24: Protector from Evil Spirits
+**Visual Theme**: Divine Protection from Darkness
+
+**Base Prompt**:
+Hanuman's fierce face or form with ghosts and demons fleeing in terror from his mere presence.
+
+---
+
+### Verse 25: Destroyer of Disease
+**Visual Theme**: Divine Healing Power
+
+**Base Prompt**:
+A sick person chanting Hanuman's name, with healing energy or light flowing from Hanuman toward them.
+
+---
+
+### Verse 26: Liberator from Crises
+**Visual Theme**: Divine Rescue and Liberation
+
+**Base Prompt**:
+Person in crisis (prison, danger, illness) calling to Hanuman, who appears to rescue them.
+
+---
+
+### Verse 27: Servant of the Supreme King
+**Visual Theme**: Perfect Devotional Service
+
+**Base Prompt**:
+Rama in ascetic clothing sitting in meditation, with Hanuman serving him in various ways.
+
+---
+
+### Verse 28: Granter of Desires
+**Visual Theme**: Divine Blessing and Fulfillment
+
+**Base Prompt**:
+Hanuman blessing devotees, with their wishes materializing or being fulfilled around them.
+
+---
+
+### Verse 29: Renowned Through All Ages
+**Visual Theme**: Eternal Divine Presence
+
+**Base Prompt**:
+Hanuman's form spanning across the four yugas, showing his eternal presence through time.
+
+---
+
+### Verse 30: Protector of Saints
+**Visual Theme**: Divine Protection of Righteousness
+
+**Base Prompt**:
+Hanuman protecting saints/sages from demons, showing both his protective and destructive aspects.
+
+---
+
+### Verse 31: Giver of Eight Siddhis
+**Visual Theme**: Divine Empowerment and Blessings
+
+**Base Prompt**:
+Sita blessing Hanuman in the Ashoka grove, with symbols of the eight siddhis and nine nidhis appearing around them.
+
+---
+
+### Verse 32: Possessor of Ram Rasayan
+**Visual Theme**: Eternal Devotion and Service
+
+**Base Prompt**:
+Hanuman in eternal service to Rama, with the nectar of devotion (represented as a glowing vessel) visible.
+
+---
+
+### Verse 33: Path to Rama
+**Visual Theme**: Spiritual Journey and Liberation
+
+**Base Prompt**:
+Path from Hanuman leading to Rama, with a devotee walking this path, freed from cycles of birth.
+
+---
+
+### Verse 34: Journey to Rama's Abode
+**Visual Theme**: Divine Destination and Liberation
+
+**Base Prompt**:
+A dying person's soul ascending to Vaikuntha (Rama's divine abode), guided by Hanuman.
+
+---
+
+### Verse 35: Sufficient Devotion
+**Visual Theme**: Complete Divine Refuge
+
+**Base Prompt**:
+Hanuman at the center with other deities in the background, showing his sufficiency for devotees.
+
+---
+
+### Verse 36: Remover of Crises and Pain
+**Visual Theme**: Comprehensive Divine Protection
+
+**Base Prompt**:
+Multiple people in various crises, all being rescued simultaneously by Hanuman's grace.
+
+---
+
+### Verse 37: Invocation for Grace
+**Visual Theme**: Spiritual Teacher and Guide
+
+**Base Prompt**:
+Devotee bowing before Hanuman, who appears in the form of a guru imparting wisdom.
+
+---
+
+### Verse 38: Freedom Through Recitation
+**Visual Theme**: Liberation Through Devotion
+
+**Base Prompt**:
+Person reciting the Chalisa 100 times, with chains of bondage breaking and light surrounding them.
+
+---
+
+### Verse 39: Attainment of Siddhi
+**Visual Theme**: Divine Witness and Validation
+
+**Base Prompt**:
+Person reading the Chalisa with Lord Shiva appearing as witness in the background or sky.
+
+---
+
+### Verse 40: Tulsidas's Prayer
+**Visual Theme**: Author's Devotion and Inner Dwelling
+
+**Base Prompt**:
+Tulsidas writing the Chalisa, with Hanuman dwelling in his heart (shown through a divine glow from his chest).
+
+---
+
+## Closing Doha
+
+### Closing Doha: Final Prayer
+**Visual Theme**: Complete Divine Family in Heart
+
+**Base Prompt**:
+Hanuman with Rama, Sita, and Lakshmana all residing in a devotee's heart (shown as glowing within the chest), or the four divine figures together blessing the devotee.
 
 ---
 
 ## Generation Guidelines
 
 ### Visual Style Consistency
-- [Add guidelines for maintaining visual consistency across images]
+When creating images for the entire Chalisa, maintain consistency in:
+- Color palette (warm golds, reds, oranges for divine figures)
+- Hanuman's appearance (golden/orange complexion, distinctive features)
+- Iconographic elements (mace, tail, jewelry, sacred thread)
+- Background elements (clouds, celestial spheres, natural settings)
 
 ### Cultural Sensitivity
-- [Add notes on ensuring cultural accuracy and respect]
+- Respect traditional Hindu iconography and symbolism
+- Ensure deity depictions follow accepted artistic conventions
+- Avoid commercial or disrespectful representations
+- Consider consulting with cultural advisors for authenticity
 
 ### Technical Specifications
-- Resolution: [Add resolution]
-- Color profile: [Add color profile]
-- File size target: [Add target]
+- **Resolution**: High resolution (1024x1024 or higher for AI generation)
+- **Format**: PNG with transparency where appropriate
+- **Aspect Ratio**: Square (1:1) or portrait (3:4) depending on composition needs
+- **File Naming**: Use consistent naming convention (verse-01.png, verse-02.png, etc.)
 
-## Attribution
+### AI Generation Tips
+When using AI tools like DALL-E 3, Midjourney, or Stable Diffusion:
+1. Start with the base prompt from this document
+2. Add style modifiers appropriate to your chosen aesthetic
+3. Include technical parameters (aspect ratio, quality, style intensity)
+4. Iterate on compositions that don't capture the spiritual essence
+5. Consider generating multiple variations and selecting the most appropriate
 
-All images generated using DALL-E 3 via OpenAI API.
+### Example Full Prompt for AI Generation
+```
+[Base Prompt from this document] in the style of traditional Indian devotional art,
+with rich colors, divine auras, detailed ornamentation, sacred atmosphere,
+spiritual symbolism, high quality, detailed, reverent composition
+```
 
 ---
 
-**Last Updated**: [Date]
+## Attribution
+
+All original images for this website were generated using **DALL-E 3** via OpenAI API.
+
+Base prompts can be used freely for:
+- Personal devotional use
+- Educational purposes
+- Creating new interpretations of the Hanuman Chalisa
+- Commissioning custom artwork
+- Research and study
+
+When creating derivative works, please maintain respect for the sacred nature of these texts and images.
+
+---
+
+## Notes on Adaptation
+
+These prompts are designed to be theme-agnostic while capturing the essential spiritual meaning of each verse. When adapting for different themes:
+
+1. **Traditional Styles**: Add references to specific art traditions (Madhubani, Rajasthani, Kerala murals, etc.)
+2. **Modern Interpretations**: Include contemporary artistic elements while respecting the sacred content
+3. **Cultural Variations**: Adapt to different regional artistic traditions within Hindu culture
+4. **Accessibility**: Consider creating simplified versions for children or educational purposes
+5. **Meditation Art**: Focus on contemplative, peaceful compositions for spiritual practice
+
+The goal is to create images that enhance understanding and devotion while remaining true to the spiritual teachings of the Hanuman Chalisa.
+
+---
+
+**Document Created**: January 2026
+**Last Updated**: January 2026
+**Version**: 1.0

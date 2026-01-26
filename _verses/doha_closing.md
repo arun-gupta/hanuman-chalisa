@@ -5,6 +5,7 @@ title_hi: "समापन दोहा: अंतिम प्रार्थ�
 verse_number: "Doha Closing"
 previous_verse: "/verses/verse_40"
 next_verse: ""
+image: "/images/closing-doha.png"
 
 devanagari: |
   पवनतनय संकट हरन,
