@@ -410,25 +410,34 @@ When creating images for the entire Chalisa, maintain consistency in:
 - Consider consulting with cultural advisors for authenticity
 
 ### Technical Specifications
-- **Resolution**: High resolution (1024x1024 or higher for AI generation)
+- **Resolution**: **1024 x 1536 pixels (REQUIRED)** - All images must be generated at this exact dimension
+- **Aspect Ratio**: Portrait 2:3 (1024x1536)
 - **Format**: PNG with transparency where appropriate
-- **Aspect Ratio**: Square (1:1) or portrait (3:4) depending on composition needs
 - **File Naming**: Use consistent naming convention (verse-01.png, verse-02.png, etc.)
+- **Important**: Maintain exact 1024x1536 dimensions across all 47 images for visual consistency
 
 ### AI Generation Tips
 When using AI tools like DALL-E 3, Midjourney, or Stable Diffusion:
 1. Start with the base prompt from this document
 2. Add style modifiers appropriate to your chosen aesthetic
-3. Include technical parameters (aspect ratio, quality, style intensity)
-4. Iterate on compositions that don't capture the spiritual essence
-5. Consider generating multiple variations and selecting the most appropriate
+3. **Set dimensions to exactly 1024x1536 pixels** (portrait orientation, 2:3 aspect ratio)
+4. Include technical parameters (quality, style intensity)
+5. Iterate on compositions that don't capture the spiritual essence
+6. Consider generating multiple variations and selecting the most appropriate
+
+**Critical**: All images must be generated at 1024x1536 pixels to ensure consistency across the book and website layouts.
 
 ### Example Full Prompt for AI Generation
 ```
 [Base Prompt from this document] in the style of traditional Indian devotional art,
 with rich colors, divine auras, detailed ornamentation, sacred atmosphere,
-spiritual symbolism, high quality, detailed, reverent composition
+spiritual symbolism, high quality, detailed, reverent composition.
+Portrait orientation, 1024x1536 pixels, 2:3 aspect ratio.
 ```
+
+**For DALL-E 3**: Use size parameter `--size 1024x1792` (closest available) and crop to 1024x1536
+**For Midjourney**: Use `--ar 2:3` aspect ratio parameter
+**For Stable Diffusion**: Set width=1024, height=1536 in generation parameters
 
 ---
 
