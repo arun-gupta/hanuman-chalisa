@@ -20,52 +20,71 @@ description: "Read the complete Hanuman Chalisa with all 43 verses on a single p
     </div>
 
     <div class="verses-content">
-        {% for verse in site.verses %}
+        {% assign sorted_verses = site.verses | sort: 'url' %}
+        {% assign ordered_verses = "" | split: "" %}
+
+        {% comment %} Build ordered array: doha_01, doha_02, verse_01-40, doha_closing {% endcomment %}
+        {% for verse in sorted_verses %}
+            {% assign verse_id = verse.url | split: '/' | last %}
+            {% unless verse_id == 'doha_closing' %}
+                {% assign ordered_verses = ordered_verses | push: verse %}
+            {% endunless %}
+        {% endfor %}
+
+        {% comment %} Add closing doha at the end {% endcomment %}
+        {% for verse in sorted_verses %}
+            {% assign verse_id = verse.url | split: '/' | last %}
+            {% if verse_id == 'doha_closing' %}
+                {% assign ordered_verses = ordered_verses | push: verse %}
+            {% endif %}
+        {% endfor %}
+
+        {% for verse in ordered_verses %}
         <article class="verse-item" id="{{ verse.url | split: '/' | last }}">
-            <div class="verse-header-with-image">
+            <div class="verse-compact-layout">
                 {% if verse.image %}
                 <div class="verse-thumbnail">
                     <img src="{{ verse.image | relative_url }}" alt="{{ verse.title_en | default: verse.title }}" loading="lazy">
                 </div>
                 {% endif %}
-                <div class="verse-header-content">
-                    <div class="verse-header">
+
+                <div class="verse-content">
+                    <div class="verse-title-row">
                         <h2><span data-lang="en">{{ verse.title_en | default: verse.title }}</span><span data-lang="hi">{{ verse.title_hi | default: verse.title }}</span></h2>
-                        <a href="{{ verse.url | relative_url }}" class="verse-link"><span data-lang="en">{{ t_en.labels.view_details }}</span><span data-lang="hi">{{ t_hi.labels.view_details }}</span> →</a>
+                        <a href="{{ verse.url | relative_url }}" class="verse-link-icon" title="View details">→</a>
+                    </div>
+
+                    <div class="verse-text-grid">
+                        <div class="text-column devanagari-section">
+                            <pre class="devanagari-text">{{ verse.devanagari }}</pre>
+                        </div>
+
+                        <div class="text-column transliteration-section">
+                            <pre class="transliteration-text">{{ verse.transliteration }}</pre>
+                        </div>
+
+                        <div class="text-column-wide translation-section">
+                            {% if verse.literal_translation.en %}
+                            <p class="literal-translation" data-lang="en">{{ verse.literal_translation.en }}</p>
+                            {% endif %}
+                            {% if verse.literal_translation.hi %}
+                            <p class="literal-translation" data-lang="hi">{{ verse.literal_translation.hi }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="meanings-section" style="display: none;">
+                        <details class="meanings-details">
+                            <summary><span data-lang="en">{{ t_en.full_chalisa.word_meaning }}</span><span data-lang="hi">{{ t_hi.full_chalisa.word_meaning }}</span></summary>
+                            <ul class="word-meanings">
+                            {% for item in verse.word_meanings %}
+                                <li><strong>{{ item.word }}</strong> ({{ item.roman }}) - {% if item.meaning.en %}<span data-lang="en">{{ item.meaning.en }}</span><span data-lang="hi">{{ item.meaning.hi }}</span>{% else %}{{ item.meaning }}{% endif %}</li>
+                            {% endfor %}
+                            </ul>
+                        </details>
                     </div>
                 </div>
             </div>
-
-            <div class="verse-section devanagari-section">
-                <h3><span data-lang="en">{{ t_en.full_chalisa.devanagari }}</span><span data-lang="hi">{{ t_hi.full_chalisa.devanagari }}</span></h3>
-                <pre class="devanagari-text">{{ verse.devanagari }}</pre>
-            </div>
-
-            <div class="verse-section transliteration-section">
-                <h3><span data-lang="en">{{ t_en.full_chalisa.transliteration }}</span><span data-lang="hi">{{ t_hi.full_chalisa.transliteration }}</span></h3>
-                <pre class="transliteration-text">{{ verse.transliteration }}</pre>
-            </div>
-
-            <div class="verse-section translation-section">
-                <h3><span data-lang="en">{{ t_en.full_chalisa.translation }}</span><span data-lang="hi">{{ t_hi.full_chalisa.translation }}</span></h3>
-                {% if verse.literal_translation.en %}
-                <p class="literal-translation" data-lang="en">{{ verse.literal_translation.en }}</p>
-                {% endif %}
-                {% if verse.literal_translation.hi %}
-                <p class="literal-translation" data-lang="hi">{{ verse.literal_translation.hi }}</p>
-                {% endif %}
-            </div>
-
-            <div class="verse-section meanings-section" style="display: none;">
-                <h3><span data-lang="en">{{ t_en.full_chalisa.word_meaning }}</span><span data-lang="hi">{{ t_hi.full_chalisa.word_meaning }}</span></h3>
-                <ul class="word-meanings">
-                {% for item in verse.word_meanings %}
-                    <li><strong>{{ item.word }}</strong> ({{ item.roman }}) - {% if item.meaning.en %}<span data-lang="en">{{ item.meaning.en }}</span><span data-lang="hi">{{ item.meaning.hi }}</span>{% else %}{{ item.meaning }}{% endif %}</li>
-                {% endfor %}
-                </ul>
-            </div>
-
-            <hr class="verse-divider">
         </article>
         {% endfor %}
     </div>
@@ -85,20 +104,21 @@ description: "Read the complete Hanuman Chalisa with all 43 verses on a single p
 
 .full-chalisa-header {
     text-align: center;
-    margin-bottom: 40px;
-    padding-bottom: 20px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
     border-bottom: 3px solid #ff6b35;
 }
 
 .full-chalisa-header h1 {
     color: #ff6b35;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
+    font-size: 1.8em;
 }
 
 .full-chalisa-header .subtitle {
     color: #666;
-    font-size: 1.1em;
-    margin-bottom: 20px;
+    font-size: 1em;
+    margin-bottom: 16px;
 }
 
 .view-options {
@@ -137,28 +157,37 @@ description: "Read the complete Hanuman Chalisa with all 43 verses on a single p
 }
 
 .verses-content {
-    margin: 30px 0;
+    margin: 0;
 }
 
 .verse-item {
-    margin-bottom: 40px;
+    margin-bottom: 24px;
     scroll-margin-top: 100px;
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    transition: box-shadow 0.2s;
 }
 
-.verse-header-with-image {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 20px;
-    align-items: flex-start;
+.verse-item:hover {
+    box-shadow: 0 2px 8px rgba(255, 107, 53, 0.1);
+}
+
+.verse-compact-layout {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 12px;
+    padding: 12px;
 }
 
 .verse-thumbnail {
-    flex-shrink: 0;
-    width: 120px;
-    height: 120px;
-    border-radius: 8px;
+    width: 80px;
+    height: 80px;
+    border-radius: 6px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
 }
 
 .verse-thumbnail img {
@@ -168,95 +197,144 @@ description: "Read the complete Hanuman Chalisa with all 43 verses on a single p
     object-position: center top;
 }
 
-.verse-header-content {
-    flex: 1;
+.verse-content {
     min-width: 0;
 }
 
-.verse-header {
+.verse-title-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px;
-    background: linear-gradient(135deg, #fff5f0 0%, #ffe8dc 100%);
-    border-left: 5px solid #ff6b35;
-    border-radius: 5px;
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #ff6b35;
 }
 
-.verse-header h2 {
+.verse-title-row h2 {
     margin: 0;
     color: #333;
-    font-size: 1.4em;
+    font-size: 1.1em;
+    font-weight: 600;
 }
 
-.verse-link {
+.verse-link-icon {
     color: #ff6b35;
     text-decoration: none;
-    font-size: 0.9em;
-    white-space: nowrap;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 4px;
+    transition: background 0.2s;
 }
 
-.verse-link:hover {
-    text-decoration: underline;
+.verse-link-icon:hover {
+    background: #fff5f0;
 }
 
-.verse-section {
-    margin-bottom: 20px;
-}
-
-.verse-section h3 {
-    color: #666;
-    font-size: 1em;
+.verse-text-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
     margin-bottom: 8px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+}
+
+.text-column {
+    min-width: 0;
+}
+
+.text-column-wide {
+    grid-column: 1 / -1;
 }
 
 .devanagari-text {
-    font-size: 1.4em;
+    font-size: 1.2em;
     font-weight: 500;
-    background: #f8f9fa;
-    padding: 15px;
+    background: #fffaf5;
+    padding: 8px;
     border-left: 3px solid #ff6b35;
+    border-radius: 3px;
     white-space: pre-wrap;
     word-wrap: break-word;
+    margin: 0;
 }
 
 .transliteration-text {
-    font-size: 1.2em;
+    font-size: 1em;
     font-style: italic;
-    background: #f8f9fa;
-    padding: 15px;
+    background: #f5f9ff;
+    padding: 8px;
     border-left: 3px solid #4a90e2;
+    border-radius: 3px;
     white-space: pre-wrap;
     word-wrap: break-word;
+    margin: 0;
 }
 
 .literal-translation {
-    font-size: 1.1em;
-    line-height: 1.6;
+    font-size: 0.95em;
+    line-height: 1.5;
     color: #333;
+    background: #f8f9fa;
+    padding: 8px;
+    border-radius: 3px;
+    margin: 0;
+}
+
+.meanings-section {
+    margin-top: 8px;
+}
+
+.meanings-details {
+    background: #fafafa;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 8px;
+}
+
+.meanings-details summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: #666;
+    font-size: 0.85em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    user-select: none;
+    list-style: none;
+}
+
+.meanings-details summary::-webkit-details-marker {
+    display: none;
+}
+
+.meanings-details summary::before {
+    content: "▶ ";
+    margin-right: 5px;
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.meanings-details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.meanings-details summary:hover {
+    color: #ff6b35;
 }
 
 .word-meanings {
     list-style: none;
-    padding: 0;
+    padding: 8px 0 0 0;
     margin: 0;
 }
 
 .word-meanings li {
-    padding: 8px 0;
+    padding: 4px 0;
+    font-size: 0.9em;
     border-bottom: 1px solid #eee;
 }
 
 .word-meanings li:last-child {
     border-bottom: none;
-}
-
-.verse-divider {
-    border: none;
-    border-top: 2px dashed #ddd;
-    margin: 40px 0;
 }
 
 .full-chalisa-footer {
@@ -272,21 +350,26 @@ description: "Read the complete Hanuman Chalisa with all 43 verses on a single p
 
 /* Mobile responsive */
 @media (max-width: 768px) {
-    .verse-header-with-image {
-        flex-direction: column;
+    .verse-compact-layout {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 10px;
     }
 
     .verse-thumbnail {
         width: 100%;
-        height: 200px;
-        max-width: 300px;
+        height: 150px;
+        max-width: 250px;
         margin: 0 auto;
     }
 
-    .verse-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
+    .verse-text-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .verse-title-row h2 {
+        font-size: 1em;
     }
 
     .view-options {
@@ -294,27 +377,50 @@ description: "Read the complete Hanuman Chalisa with all 43 verses on a single p
         gap: 10px;
     }
 
-    .devanagari-text,
+    .devanagari-text {
+        font-size: 1.1em;
+    }
+
     .transliteration-text {
-        font-size: 1.2em;
+        font-size: 0.95em;
+    }
+
+    .literal-translation {
+        font-size: 0.9em;
     }
 }
 
 /* Print styles */
 @media print {
     .view-options,
-    .verse-link,
-    .print-all-button {
+    .verse-link-icon,
+    .print-all-button,
+    .verse-thumbnail {
         display: none !important;
     }
 
     .verse-item {
         page-break-inside: avoid;
+        border: 1px solid #000;
+        margin-bottom: 15px;
+        box-shadow: none;
     }
 
-    .verse-header {
+    .verse-compact-layout {
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+
+    .verse-text-grid {
+        grid-template-columns: 1fr;
+        gap: 5px;
+    }
+
+    .devanagari-text,
+    .transliteration-text,
+    .literal-translation {
         background: none !important;
-        border: 1px solid #000;
+        border-left: 2px solid #000 !important;
     }
 }
 </style>
