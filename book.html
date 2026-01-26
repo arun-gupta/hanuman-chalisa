@@ -911,6 +911,38 @@ function escapeHtml(text) {
     return div.innerHTML;
 }
 
+function waitForImagesToLoad() {
+    return new Promise((resolve) => {
+        const bookContent = document.getElementById('bookContent');
+        const images = bookContent.querySelectorAll('img');
+
+        if (images.length === 0) {
+            resolve();
+            return;
+        }
+
+        let loadedCount = 0;
+        const totalImages = images.length;
+
+        const checkAllLoaded = () => {
+            loadedCount++;
+            if (loadedCount === totalImages) {
+                // Give a small buffer for rendering
+                setTimeout(resolve, 300);
+            }
+        };
+
+        images.forEach(img => {
+            if (img.complete) {
+                checkAllLoaded();
+            } else {
+                img.addEventListener('load', checkAllLoaded);
+                img.addEventListener('error', checkAllLoaded); // Count errors as "loaded" to not block
+            }
+        });
+    });
+}
+
 // Event listeners
 document.getElementById('previewBook').addEventListener('click', function() {
     if (versesData.length === 0) {
@@ -922,16 +954,29 @@ document.getElementById('previewBook').addEventListener('click', function() {
     document.getElementById('bookPreview').scrollIntoView({ behavior: 'smooth' });
 });
 
-document.getElementById('printBook').addEventListener('click', function() {
+document.getElementById('printBook').addEventListener('click', async function() {
     if (versesData.length === 0) {
         alert('Please wait while verse data is loading...');
         return;
     }
+
+    // Show loading message
+    const btn = this;
+    const originalText = btn.innerHTML;
+    btn.innerHTML = '<span data-lang="en">⏳ Loading images...</span><span data-lang="hi">⏳ चित्र लोड हो रहे हैं...</span>';
+    btn.disabled = true;
+
     generateBook();
-    // Longer timeout to ensure all images (especially title page) are loaded
-    setTimeout(() => {
-        window.print();
-    }, 1500);
+
+    // Wait for all images to load
+    await waitForImagesToLoad();
+
+    // Restore button
+    btn.innerHTML = originalText;
+    btn.disabled = false;
+
+    // Now print
+    window.print();
 });
 
 document.getElementById('closePreview').addEventListener('click', function() {
