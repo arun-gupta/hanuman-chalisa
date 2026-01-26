@@ -445,13 +445,31 @@ function escapeHtml(text) {
 function updateSearchPlaceholder() {
     const currentLang = getCurrentLanguage();
     const searchInput = document.getElementById('searchInput');
-    const placeholderKey = currentLang === 'hi' ? 'data-placeholder-hi' : 'data-placeholder-en';
-    searchInput.placeholder = searchInput.getAttribute(placeholderKey);
+    if (searchInput) {
+        const placeholderKey = currentLang === 'hi' ? 'data-placeholder-hi' : 'data-placeholder-en';
+        const placeholder = searchInput.getAttribute(placeholderKey);
+        if (placeholder) {
+            searchInput.placeholder = placeholder;
+        }
+    }
 }
 
-// Initialize on page load
-document.addEventListener('DOMContentLoaded', function() {
-    updateSearchPlaceholder();
-    document.getElementById('searchInput').focus();
-});
+// Initialize search page - run after language.js has initialized
+function initSearchPage() {
+    // Wait a bit for language.js to complete
+    setTimeout(function() {
+        updateSearchPlaceholder();
+        const searchInput = document.getElementById('searchInput');
+        if (searchInput) {
+            searchInput.focus();
+        }
+    }, 50);
+}
+
+// Run on DOM ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSearchPage);
+} else {
+    initSearchPage();
+}
 </script>
