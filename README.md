@@ -42,13 +42,26 @@ export OPENAI_API_KEY='your-key-here'
 
 **Cost**: ~$2 for all 47 images (standard quality) | See [scripts/README.md](scripts/README.md) for details
 
+## 📕 Generate Printable Books
+
+Create custom physical books of the Hanuman Chalisa:
+
+- **Multiple page sizes**: 6"×4" pocket, 8"×6" medium, A5, A4
+- **Configurable content**: Choose what to include (images, translations, meanings, stories)
+- **Bilingual options**: English, Hindi, or both languages side-by-side
+- **Theme selection**: Use any available image theme
+- **Print or PDF**: Generate print-ready books or save as PDF
+
+Visit the [Book Generation page](https://arun-gupta.github.io/hanuman-chalisa/book) or see [docs/book-generation.md](docs/book-generation.md) for full instructions.
+
 ## Features
 
 ### Interactive Website Features
 - **📖 Full chalisa view** - Read all 43 verses on a single page with bilingual display
+- **📕 Book Generation** - Create custom printable books with configurable page sizes (6×4, 8×6, A5, A4), content options, and layout
 - **🔍 Search functionality** - Search across all verses in Devanagari, transliteration, translations
 - **⌨️ Arrow key navigation** (← →) between verses
-- **🖨️ Print-friendly** - Optimized CSS for printing verses
+- **🖨️ Print-friendly** - Optimized CSS for printing verses and generating PDFs
 - **📱 Mobile responsive** design
 - **🎨 Theme Switcher** - Choose from different artistic styles for verse images (Modern Minimalist available)
 - **🖼️ Beautiful AI-generated images** - All 47 images complete (title + 2 dohas + 40 verses + closing doha)
