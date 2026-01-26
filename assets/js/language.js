@@ -48,6 +48,18 @@ function displayLanguageContent() {
         select.value = lang;
     }
 
+    // Update theme selector options to show current language
+    const themeSelect = document.getElementById('themeSelect');
+    if (themeSelect) {
+        themeSelect.querySelectorAll('option').forEach(option => {
+            const nameKey = lang === 'hi' ? 'data-name-hi' : 'data-name-en';
+            const name = option.getAttribute(nameKey);
+            if (name) {
+                option.textContent = name;
+            }
+        });
+    }
+
     // Show/hide language-specific content
     document.querySelectorAll('[data-lang]').forEach(el => {
         if (el.getAttribute('data-lang') === lang) {

@@ -35,8 +35,11 @@
                             {% for theme_data in site.data.themes %}
                                 {% assign theme_key = theme_data[0] %}
                                 {% assign theme = theme_data[1] %}
-                                <option value="{{ theme_key }}" {% if theme.default %}selected{% endif %}>
-                                    🎨 <span data-lang="en">{{ theme.name_en }}</span><span data-lang="hi">{{ theme.name_hi }}</span>
+                                <option value="{{ theme_key }}"
+                                        data-name-en="🎨 {{ theme.name_en }}"
+                                        data-name-hi="🎨 {{ theme.name_hi }}"
+                                        {% if theme.default %}selected{% endif %}>
+                                    🎨 {{ theme.name_en }}
                                 </option>
                             {% endfor %}
                         </select>
