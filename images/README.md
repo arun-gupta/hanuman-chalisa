@@ -125,6 +125,76 @@ images/theme-name/
 └── closing-doha.png
 ```
 
+## Testing Your Theme
+
+After generating images:
+
+1. **Build locally**:
+   ```bash
+   bundle exec jekyll serve
+   ```
+
+2. **Test theme selector**:
+   - Click theme dropdown (🎨) in header
+   - Select your theme
+   - Navigate through several verses
+   - Verify theme persists after reload
+
+3. **Check image quality**:
+   - Images display clearly
+   - No distortion or pixelation
+   - Colors render correctly
+   - Test on mobile devices
+
+4. **Update site config**:
+   - Add theme to `_data/themes.yml`
+   - Rebuild and test again
+
+## Best Practices
+
+### Image Quality
+- Use consistent resolution (1024 × 1536 pixels)
+- Optimize file sizes (target 200-500 KB per image)
+- Test on retina/high-DPI displays
+
+### Artistic Consistency
+- Maintain consistent style across all 47 images
+- Use cohesive color palette
+- Keep visual motifs recognizable
+
+### Cultural Sensitivity
+- Respect traditional Hindu iconography
+- Avoid inappropriate representations
+- Consider consulting cultural advisors
+
+## Troubleshooting
+
+### Images Not Showing
+- Check folder name in `_data/themes.yml` matches directory name
+- Verify all 47 images have correct filenames
+- Clear browser cache and reload
+
+### Theme Not in Selector
+- Verify `_data/themes.yml` syntax
+- Wait 1-2 minutes for GitHub Pages rebuild
+- Check browser console for errors
+
+### Slow Image Loading
+- Compress PNG files (use TinyPNG or ImageOptim)
+- Keep images under 500KB each
+- Test on slower connections
+
+## Theme Ideas
+
+Potential themes for future development:
+
+- **Traditional Indian Art**: Classic devotional painting, gold accents, Mughal miniatures style
+- **Watercolor**: Soft flowing aesthetic, gentle colors, hand-painted feel
+- **Pencil Sketch**: Black and white line work, classical artistic approach
+- **Contemporary Digital**: Vibrant illustration, modern palettes, graphic novel style
+- **Photorealistic**: 3D rendered scenes, dramatic lighting, cinematic composition
+- **Abstract Spiritual**: Sacred geometry, mandala-inspired, symbolic representation
+
 ## Resources
 
 - **Scene descriptions**: [docs/image-prompts.md](../docs/image-prompts.md)
