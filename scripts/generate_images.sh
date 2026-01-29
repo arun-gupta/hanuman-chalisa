@@ -18,6 +18,7 @@ QUALITY="${QUALITY:-standard}"
 SIZE="${SIZE:-1024x1024}"
 RESUME="${RESUME:-}"
 REGENERATE=""
+FORCE=""
 THEME_NAME=""
 STYLE=""
 
@@ -36,6 +37,7 @@ show_usage() {
     echo "  --size <dimensions>           Image size: '1024x1024' or '1024x1792' (default: from theme or 1024x1024)"
     echo "  -r, --resume <filename>       Resume from specific image (e.g., verse-15.png)"
     echo "  --regenerate <file1,file2>    Regenerate specific images (comma-separated, e.g., verse-10.png,verse-25.png)"
+    echo "  --force                       Force regenerate ALL images (deletes existing theme directory)"
     echo "  -h, --help                    Show this help message"
     echo ""
     echo "Theme YAML Files:"
@@ -59,9 +61,12 @@ show_usage() {
     echo "  # Regenerate specific failed images"
     echo "  ./scripts/generate_images.sh kids-friendly --regenerate verse-10.png,verse-25.png"
     echo ""
-    echo "Cost Estimates (all 47 images):"
-    echo "  Standard quality (1024x1024): ~\$2.00"
-    echo "  HD quality (1024x1024):       ~\$4.00"
+    echo "  # Force regenerate ALL images (useful after updating character consistency)"
+    echo "  ./scripts/generate_images.sh kids-friendly --force"
+    echo ""
+    echo "Cost Estimates (all 44 images):"
+    echo "  Standard quality (1024x1024): ~\$1.76"
+    echo "  HD quality (1024x1024):       ~\$3.52"
     echo ""
     echo "API Key:"
     echo "  Set OPENAI_API_KEY environment variable or create .env file"
@@ -103,6 +108,10 @@ while [[ $# -gt 0 ]]; do
             REGENERATE="$2"
             shift 2
             ;;
+        --force)
+            FORCE="true"
+            shift
+            ;;
         -*)
             echo -e "${RED}Error: Unknown option: $1${NC}"
             echo "Use --help for usage information"
@@ -126,6 +135,13 @@ if [ -z "$THEME_NAME" ]; then
     echo -e "${RED}Error: Theme name is required${NC}"
     echo ""
     show_usage
+fi
+
+# Check for conflicting options
+if [ -n "$FORCE" ] && [ -n "$REGENERATE" ]; then
+    echo -e "${RED}Error: Cannot use --force and --regenerate together${NC}"
+    echo "Use --force to regenerate ALL images, or --regenerate for specific images"
+    exit 1
 fi
 
 # Check if Python is available
@@ -168,7 +184,36 @@ echo "Quality: $QUALITY"
 echo "Size: $SIZE"
 [ -n "$RESUME" ] && echo "Resume from: $RESUME"
 [ -n "$REGENERATE" ] && echo "Regenerate: $REGENERATE"
+[ -n "$FORCE" ] && echo -e "${YELLOW}Mode: FORCE REGENERATE ALL${NC}"
 echo ""
+
+# Handle --force option (must come before --regenerate)
+if [ -n "$FORCE" ]; then
+    IMAGES_DIR="images/$THEME_NAME"
+
+    if [ -d "$IMAGES_DIR" ]; then
+        IMAGE_COUNT=$(ls -1 "$IMAGES_DIR"/*.png 2>/dev/null | wc -l)
+        echo -e "${YELLOW}⚠ WARNING: Force regeneration will delete $IMAGE_COUNT existing images!${NC}"
+        echo -e "${YELLOW}Theme directory: $IMAGES_DIR${NC}"
+        echo ""
+        read -p "Are you sure you want to delete and regenerate ALL images? (yes/no): " CONFIRM
+
+        if [ "$CONFIRM" = "yes" ]; then
+            echo ""
+            echo -e "${YELLOW}Deleting existing theme directory...${NC}"
+            rm -rf "$IMAGES_DIR"
+            echo -e "${GREEN}✓ Deleted: $IMAGES_DIR${NC}"
+            echo -e "${YELLOW}Will now regenerate all 44 images...${NC}"
+            echo ""
+        else
+            echo -e "${RED}Aborted. No images were deleted.${NC}"
+            exit 0
+        fi
+    else
+        echo -e "${YELLOW}Theme directory not found. Will create and generate all images.${NC}"
+        echo ""
+    fi
+fi
 
 # Handle --regenerate option
 if [ -n "$REGENERATE" ]; then
