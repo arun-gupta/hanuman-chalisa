@@ -6,6 +6,14 @@ modern-minimalist:
   folder: "modern-minimalist"
   default: true
 
+kids-friendly:
+  name_en: "Kids Friendly"
+  name_hi: "बच्चों के अनुकूल"
+  description_en: "Vibrant cartoon-style illustrations perfect for children ages 5-12"
+  description_hi: "५-१२ साल के बच्चों के लिए जीवंत कार्टून शैली के चित्र"
+  folder: "kids-friendly"
+  default: false
+
 # Future themes can be added here
 # traditional:
 #   name_en: "Traditional Art"

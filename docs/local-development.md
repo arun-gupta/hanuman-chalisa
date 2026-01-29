@@ -103,7 +103,7 @@ bundle exec jekyll serve --incremental
 Liquid Exception: Liquid syntax error
 ```
 
-**Fix:** Check your `{% %}` and `{{ }}` tags in templates. Use `{% raw %}...{% endraw %}` to escape example code.
+**Fix:** Check your Liquid template tags (percent-brace and double-brace syntax) in templates. Wrap example code in raw/endraw tags to prevent Jekyll from processing it.
 
 ### YAML Parsing Error
 
