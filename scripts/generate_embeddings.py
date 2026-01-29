@@ -197,12 +197,19 @@ def generate_verse_url(verse_data):
     # Handle special cases (dohas, closing verses)
     title_en = verse_data.get('title_en', '')
     if 'Doha' in title_en:
-        if 'Opening' in title_en or verse_num == 1:
+        if 'Opening' in title_en or verse_num == 1 or verse_num == '1':
             return '/verses/doha_01/'
-        elif verse_num == 2:
+        elif verse_num == 2 or verse_num == '2':
             return '/verses/doha_02/'
     elif 'Closing' in title_en:
         return '/verses/doha_closing/'
+
+    # Ensure verse_num is an integer for formatting
+    if isinstance(verse_num, str):
+        try:
+            verse_num = int(verse_num)
+        except ValueError:
+            verse_num = 0
 
     return f'/verses/verse_{verse_num:02d}/'
 
