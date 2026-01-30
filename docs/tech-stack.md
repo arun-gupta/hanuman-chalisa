@@ -67,10 +67,14 @@ hanuman-chalisa/
 │   ├── js/language.js      # Language switching
 │   ├── js/theme.js         # Image theme switching
 │   └── js/guidance.js      # RAG system (NEW)
-├── scripts/                 # Python utilities
-│   ├── generate_embeddings_local.py  # Local embedding generation (NEW)
-│   ├── embedding_config.yaml         # Config for embeddings (NEW)
-│   └── requirements.txt     # Python dependencies
+├── scripts/                 # Python and bash utilities
+│   ├── generate_embeddings_local.py  # Local embedding generation
+│   ├── embedding_config.yaml         # Config for embeddings
+│   ├── generate_audio.py             # Eleven Labs audio generation
+│   ├── generate_audio.sh             # Audio generation wrapper
+│   ├── generate_theme_images.py      # DALL-E 3 image generation
+│   ├── generate_images.sh            # Image generation wrapper
+│   └── requirements.txt              # Python dependencies (elevenlabs, openai, etc.)
 ├── images/                  # Verse images (organized by theme)
 │   └── modern-minimalist/  # Current theme (47 images complete)
 │       ├── title-page.png
@@ -78,7 +82,7 @@ hanuman-chalisa/
 │       ├── opening-doha-02.png
 │       ├── verse-01.png through verse-40.png
 │       └── closing-doha.png
-├── audio/                   # Audio recitations (coming soon)
+├── audio/                   # Audio recitations (86 MP3 files: 43 verses × 2 speeds)
 ├── docs/                    # Documentation
 ├── venv/                    # Python virtual environment (NEW, excluded from Jekyll)
 ├── data/embeddings.json          # Pre-computed embeddings - 1.1MB (NEW)
@@ -336,11 +340,46 @@ modern-minimalist:
 - All images automatically updated when theme changes
 - Extensible to support future themes (Traditional, Watercolor, etc.)
 
-### Audio Recitations (Planned)
-- **AI voice synthesis** - Provider to be determined
-- Full-speed and slow-speed versions
-- Export as MP3 (128kbps)
-- Store in `/audio/verse_01_full.mp3`, `/audio/verse_01_slow.mp3`
+### Audio Recitations
+- **Eleven Labs** - AI text-to-speech (eleven_multilingual_v2 model for Hindi/Sanskrit)
+- **ffmpeg** - Audio post-processing for speed control
+- **Format**: MP3 (128kbps+, Eleven Labs default)
+- **Two versions per verse**:
+  - Full speed: Natural conversational pace
+  - Slow speed: 75% speed (slowed via ffmpeg `atempo` filter) + pauses for learning
+- **Voice**: Rachel (default) - clear, neutral female voice
+- **Data Residency**: EU endpoint support for EU-based API keys
+- **Status**: ✅ Complete - All 86 files generated (43 verses × 2 speeds)
+- **Directory**: `/audio/{base_name}_{speed}.mp3`
+  - Example: `doha_01_full.mp3`, `doha_01_slow.mp3`, `verse_01_full.mp3`, `verse_01_slow.mp3`
+
+**Technical Implementation:**
+```bash
+# Generate all audio files
+./scripts/generate_audio.sh
+
+# Test single file
+./scripts/generate_audio.sh --only doha_01_full.mp3
+
+# Regenerate specific files
+./scripts/generate_audio.sh --regenerate verse_10_full.mp3,verse_10_slow.mp3
+```
+
+**Pipeline:**
+1. Extract Devanagari text from verse YAML front matter
+2. Generate audio via Eleven Labs API (text-to-speech)
+3. For slow version: Apply ffmpeg `atempo=0.75` filter (25% slower without pitch change)
+4. Save as MP3 in `/audio/` directory
+
+**Requirements:**
+- Eleven Labs API key (stored in `.env`)
+- `ffmpeg` installed for slow speed processing (`brew install ffmpeg` on macOS)
+- Python packages: `elevenlabs`, `python-dotenv`
+
+**Cost:**
+- Eleven Labs free tier: 10,000 characters/month
+- Total characters needed: ~10,000-15,000 (all 43 verses)
+- One-time generation fits within free tier
 
 ### Embeddings Generation (Python)
 - **sentence-transformers** - Local embedding generation
@@ -382,6 +421,14 @@ pip install sentence-transformers  # ~500MB including PyTorch
 - Bulk file operations (43 verse conversions)
 - Git workflow automation
 - Documentation generation
+
+### System Dependencies
+- **Python 3.8+** - For image and audio generation scripts
+- **ffmpeg** - Audio post-processing for slow speed versions
+  - macOS: `brew install ffmpeg`
+  - Linux: `sudo apt-get install ffmpeg`
+- **Ruby 3.3+** - For Jekyll local development
+- **Node.js** (optional) - For Cloudflare Worker development
 
 **Collaboration Pattern:**
 1. Claude Code generates structure and content
@@ -429,10 +476,18 @@ Navigation:
 
 - **Hosting**: Free (GitHub Pages)
 - **Domain** (optional): $10-15/year
-- **Images**: DALL-E 3 via OpenAI API (pay per image)
-- **Audio** (planned): TBD
+- **Images**: DALL-E 3 via OpenAI API
+  - Standard quality: $0.040/image
+  - 44 images per theme: ~$1.76 per theme
+  - Current: 2 themes × 44 images = $3.52 total (one-time)
+- **Audio**: Eleven Labs text-to-speech
+  - Free tier: 10,000 characters/month
+  - Total needed: ~10,000-15,000 characters (86 files)
+  - Cost: FREE (fits within free tier, one-time generation)
+- **Embeddings**: FREE (generated locally with HuggingFace)
+- **Spiritual Guidance**: ~$0.01 per query (user-borne if using worker mode)
 
-**Total**: Free for hosting, minimal cost for AI-generated media
+**Total**: Free for hosting, ~$3.52 one-time cost for AI-generated media
 
 ## Resources
 
