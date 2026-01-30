@@ -20,6 +20,15 @@
                    │
                    ▼
 ┌──────────────────────────────────────────────┐
+│           AI-GENERATED MEDIA ASSETS           │
+├──────────────────────────────────────────────┤
+│  • images/ (47 PNG per theme - DALL-E 3)    │
+│  • audio/ (86 MP3 files - Eleven Labs)      │
+│    - 43 verses × 2 speeds (full + slow)     │
+└──────────────────┬───────────────────────────┘
+                   │
+                   ▼
+┌──────────────────────────────────────────────┐
 │       VERSION CONTROL & DEPLOYMENT           │
 ├──────────────────────────────────────────────┤
 │  Git → GitHub → Jekyll Build → Live Site    │
@@ -499,7 +508,7 @@ Navigation:
 
 - [verse-structure.md](verse-structure.md) - Verse YAML structure
 - [background.md](background.md) - Hanuman Chalisa history
-- [guide.md](guide.md) - Recitation guide
+- [user-guide.md](user-guide.md) - Recitation guide
 - [github-pages-setup.md](github-pages-setup.md) - Deployment setup
 
 ---
