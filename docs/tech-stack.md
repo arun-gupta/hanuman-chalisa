@@ -202,13 +202,7 @@ interpretive_meaning:
 
 ### Adding New Languages
 
-To add a new language (e.g., Tamil):
-1. Create `_data/translations/ta.yml`
-2. Translate ~70 UI strings
-3. Add to language dropdown
-4. Translate verse content (optional, falls back to English)
-
-See [multilingual-implementation.md](multilingual-implementation.md) for complete guide.
+See [Adding New Languages](multilingual-implementation.md#adding-new-languages) in the multilingual implementation guide for step-by-step instructions.
 
 ## Key Features
 

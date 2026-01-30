@@ -167,6 +167,66 @@ Add language parameter handling:
 ```
 {% endraw %}
 
+## Adding New Languages
+
+To add a new language (e.g., Tamil):
+
+### Step 1: Create Translation File
+Create `_data/translations/ta.yml` with ~70 UI strings:
+
+```yaml
+language_name: "தமிழ்"
+language_code: "ta"
+
+nav:
+  previous: "முந்தைய"
+  next: "அடுத்த"
+  home: "முகப்பு"
+
+sections:
+  devanagari: "1. மூல இந்தி உரை"
+  transliteration: "2. எழுத்துப்பெயர்ப்பு"
+  # ... and ~65 more strings
+```
+
+### Step 2: Add to Language Dropdown
+Update `_layouts/default.html`:
+
+```html
+<select id="languageSelect">
+  <option value="en">English</option>
+  <option value="hi">हिन्दी</option>
+  <option value="ta">தமிழ்</option>  <!-- NEW -->
+</select>
+```
+
+### Step 3: Translate Verse Content (Optional)
+Add Tamil translations to verse files in `_verses/*.md`:
+
+```yaml
+literal_translation:
+  en: "Hail Hanuman, ocean of knowledge..."
+  hi: "हनुमान की जय हो..."
+  ta: "ஹனுமானுக்கு ஜெய்..."  # NEW
+
+# Repeat for: interpretive_meaning, story, practical_application
+```
+
+**Note**: If Tamil translation is missing, the site automatically falls back to English.
+
+### Step 4: Test
+```bash
+bundle exec jekyll serve
+# Visit: http://localhost:4000/hanuman-chalisa/?lang=ta
+# Check: UI strings, verse content, navigation links
+```
+
+**Time Estimate:**
+- UI translations: 2-3 hours
+- Verse content translations: 20-30 hours (optional, can be done incrementally)
+
+---
+
 ## Implementation Workflow
 
 ### Phase 1: Setup (1-2 hours)
