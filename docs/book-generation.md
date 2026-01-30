@@ -111,12 +111,6 @@ Same process, but select your printer instead of PDF. Use quality paper (24lb+) 
 
 **Mobile Usage:** Configure on mobile, but generate PDF on desktop for best results.
 
-## 📊 Technical Details
-
-- **Browser Support**: Chrome, Firefox, Safari (all ✅), Mobile (preview only)
-- **Print CSS**: Optimized for physical printing, removes UI elements
-- **Page Breaks**: Intelligent breaks avoid splitting verses
-
 ## 🤝 Contributing
 
 Have ideas for improvements? See [CONTRIBUTING.md](../CONTRIBUTING.md).
