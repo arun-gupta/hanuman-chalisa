@@ -232,38 +232,27 @@ See [Adding New Languages](multilingual-implementation.md#adding-new-languages) 
 - **Verse citations** - Links to relevant verses in responses
 
 **Technical Implementation:**
-- Pre-generated embeddings using OpenAI `text-embedding-3-small` (1536 dimensions)
-- Pluggable embedding generation (supports OpenAI or local HuggingFace)
+- Pre-generated embeddings using sentence-transformers (384 dimensions, generated locally)
 - Keyword-based retrieval for client-side simplicity
 - OpenAI GPT-4o for spiritual guidance generation
-- Cost: ~$0.01 per query
+- Cost: ~$0.01 per query (site owner pays)
 
-**Architecture - Two Modes:**
-
-**Mode 1: User-Provided API Key** (Default)
-- Users enter their own OpenAI API key
-- Key stored in browser localStorage
-- Direct API calls from browser to OpenAI
-- No backend required
-- Zero cost for site owner
-
-**Mode 2: Cloudflare Worker** (Production)
-- Serverless proxy deployed to Cloudflare Workers
+**Production Architecture:**
+- **Cloudflare Worker** - Serverless proxy for OpenAI API
 - Site owner's API key stored securely as Cloudflare secret
 - Users make requests to worker endpoint
 - Worker forwards to OpenAI API
-- Frictionless UX (no API key entry needed)
+- **Frictionless UX** - No API key entry needed by users
 - Rate limiting built-in (10 req/min per IP)
 - Free tier: 100,000 requests/day
 - CORS-enabled for browser requests
 - Current deployment: `https://hanuman-chalisa-api.arungupta.workers.dev`
 
 **Files:**
-- `scripts/generate_embeddings.py` - Pluggable embedding generation (OpenAI or HuggingFace)
-- `scripts/generate_embeddings_local.py` - Local HuggingFace embedding generation (legacy)
-- `data/embeddings.json` - Pre-computed verse embeddings (4.2MB, 1536-dim)
+- `scripts/generate_embeddings_local.py` - Local HuggingFace embedding generation (FREE)
+- `data/embeddings.json` - Pre-computed verse embeddings (1.1MB, 384-dim)
 - `guidance.html` - Chat interface
-- `assets/js/guidance.js` - RAG pipeline logic (supports both modes)
+- `assets/js/guidance.js` - RAG pipeline logic
 - `workers/cloudflare-worker.js` - Serverless API proxy for OpenAI
 - `wrangler.toml` - Cloudflare Worker configuration
 - `scripts/deploy-cloudflare-worker.sh` - Automated deployment script
@@ -275,12 +264,8 @@ See [Adding New Languages](multilingual-implementation.md#adding-new-languages) 
 - Dashboard: Copy/paste worker code via Cloudflare UI
 - See: [docs/cloudflare-worker-setup.md](cloudflare-worker-setup.md)
 
-**Switching Modes:**
-```javascript
-// In assets/js/guidance.js:
-const WORKER_URL = '';  // Empty = user-provided key mode
-const WORKER_URL = 'https://...workers.dev';  // Set = worker mode
-```
+**Developer Note:**
+The code supports an alternative "user-provided API key" mode for development by setting `WORKER_URL = ''` in `assets/js/guidance.js`, but this is not exposed to end users in production.
 
 ### 4. Navigation
 - Arrow keys (← →) between verses
