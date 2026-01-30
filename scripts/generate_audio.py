@@ -71,7 +71,21 @@ class AudioGenerator:
             api_key: Eleven Labs API key
             voice_id: Voice ID to use for generation
         """
-        self.client = ElevenLabs(api_key=api_key)
+        # Detect data residency region from API key
+        base_url = None
+        if "_residency_eu" in api_key:
+            base_url = "https://api.elevenlabs.eu"
+            print("✓ Detected EU data residency API key")
+        elif "_residency_" in api_key:
+            # Other residency regions could be added here
+            print("⚠ Non-EU residency key detected - using global endpoint")
+
+        # Initialize client with appropriate base URL
+        if base_url:
+            self.client = ElevenLabs(api_key=api_key, base_url=base_url)
+        else:
+            self.client = ElevenLabs(api_key=api_key)
+
         self.voice_id = voice_id
 
         # Create audio directory if it doesn't exist
