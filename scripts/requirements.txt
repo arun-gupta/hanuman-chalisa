@@ -1,7 +1,10 @@
-# Requirements for image generation scripts
+# Requirements for image and audio generation scripts
 
-# OpenAI API client for DALL-E 3
+# OpenAI API client for DALL-E 3, embeddings, GPT
 openai>=1.0.0
+
+# Eleven Labs API client for text-to-speech
+elevenlabs>=1.0.0
 
 # HTTP requests for downloading images
 requests>=2.31.0
@@ -9,7 +12,7 @@ requests>=2.31.0
 # Image processing (optional, for validation/optimization)
 Pillow>=10.0.0
 
-# Environment variable management (optional)
+# Environment variable management
 python-dotenv>=1.0.0
 
 # YAML parsing for theme configuration files
