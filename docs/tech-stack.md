@@ -307,8 +307,25 @@ The code supports an alternative "user-provided API key" mode for development by
 - **Directory Structure**: `/images/{theme-name}/`
 - **Naming Convention**: `title-page.png`, `opening-doha-01.png`, `verse-01.png`, `closing-doha.png`
 - **Status**: ✅ Complete - All 47 images generated (title + 2 dohas + 40 verses + closing)
-- **Current Theme**: Modern Minimalist (saffron orange with clean backgrounds)
+- **Current Themes**: Modern Minimalist, Kids Friendly
 - **Theme System**: Extensible architecture to support multiple artistic styles
+
+**Generation Script:**
+```bash
+# Generate all images for a theme
+./scripts/generate_images.sh modern-minimalist
+
+# Generate single image for testing
+./scripts/generate_images.sh modern-minimalist --only verse-01.png
+
+# Regenerate specific images
+./scripts/generate_images.sh modern-minimalist --regenerate verse-10.png,verse-30.png
+
+# Force regenerate ALL images
+./scripts/generate_images.sh modern-minimalist --force
+```
+
+**Cost:** ~$2 per theme (47 images × $0.040 standard quality)
 
 #### Theme Configuration
 Themes are defined in `_data/themes.yml`:
