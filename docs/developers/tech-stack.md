@@ -221,7 +221,7 @@ interpretive_meaning:
 
 ### Adding New Languages
 
-See [Adding New Languages](multilingual-implementation.md#adding-new-languages) in the multilingual implementation guide for step-by-step instructions.
+See [Adding New Languages](../features/multilingual.md#adding-new-languages) in the multilingual implementation guide for step-by-step instructions.
 
 ## Key Features
 
@@ -268,7 +268,7 @@ verse-deploy
 
 **Deployment**: `https://hanuman-chalisa-api.arungupta.workers.dev`
 
-See [cloudflare-worker-setup.md](cloudflare-worker-setup.md) for details.
+See [deployment guide](deployment.md) for details.
 
 ### 4. Navigation
 - Arrow keys (← →) between verses
@@ -416,7 +416,7 @@ Navigation:
 
 ## Internal Documentation
 
-- [verse-structure.md](verse-structure.md) - Verse YAML structure
-- [background.md](background.md) - Hanuman Chalisa history
-- [user-guide.md](user-guide.md) - Recitation guide
-- [github-pages-setup.md](github-pages-setup.md) - Deployment setup
+- [verse-structure.md](../content/verse-structure.md) - Verse YAML structure
+- [background.md](../users/background.md) - Hanuman Chalisa history
+- [user-guide.md](../users/guide.md) - Recitation guide
+- [deployment.md](deployment.md) - Deployment setup

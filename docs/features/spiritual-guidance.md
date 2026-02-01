@@ -65,4 +65,4 @@ This removes all costs for you but adds friction (users must create OpenAI accou
 
 ## Deployment
 
-See [cloudflare-worker-setup.md](cloudflare-worker-setup.md) for deployment instructions.
+See [deployment guide](../developers/deployment.md) for deployment instructions.
