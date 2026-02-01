@@ -26,7 +26,7 @@ Documentation about verse content and themes.
 - **[Image Prompts](content/image-prompts.md)** - Scene descriptions for image generation
 - **[Themes](content/themes/)** - Visual theme specifications and generation workflow
   - [Theme README](content/themes/README.md)
-  - [Generation Workflow](content/themes/GENERATION-WORKFLOW.md)
+  - [Generation Workflow](content/themes/generation-workflow.md)
 
 ## ✨ Features
 
